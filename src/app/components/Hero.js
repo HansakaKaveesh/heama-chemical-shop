@@ -1,10 +1,10 @@
 export default function Hero() {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat text-white h-screen flex items-center px-6 text-center"
+      className="relative bg-cover bg-center bg-no-repeat text-white h-screen flex items-center px-6 text-center py-10 md:py-0"
       style={{
         backgroundImage: `url('/3696093.jpg')`,
-        backgroundAttachment: "fixed", // Update the image path if needed
+        backgroundAttachment: "fixed",
       }}
       aria-label="Hero section showcasing innovative chemical solutions"
     >
@@ -13,7 +13,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg transition-transform transform hover:scale-105">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg transition-transform transform hover:scale-105 will-change-transform">
           Innovative Chemical Solutions
         </h1>
         <p className="text-lg md:text-xl mb-8 opacity-90">
@@ -22,7 +22,7 @@ export default function Hero() {
         </p>
         <a
           href="#products"
-          className="inline-block bg-white text-blue-800 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-blue-100 transition duration-300 transform hover:scale-105"
+          className="inline-block bg-white text-blue-800 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition duration-300 transform hover:scale-105 will-change-transform"
         >
           Explore Our Products
         </a>
