@@ -39,9 +39,9 @@ export default function About() {
         {/* Right Side - Image */}
         <div className="flex justify-center md:justify-end">
           <img
-            src="/about.jpg"
+            src="/about-removebg-preview.png"
             alt="ChemTech manufacturing process"
-            className="rounded-xl shadow-2xl transition-transform transform hover:scale-105"
+            className=" transition-transform transform hover:scale-105"
             style={{ maxWidth: "80%", height: "auto" }}
           />
         </div>
