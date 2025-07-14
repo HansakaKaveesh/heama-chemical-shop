@@ -17,7 +17,7 @@ export default function About() {
             About Us
           </h2>
           <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-            ChemTech is a leading chemical manufacturing company focused on providing
+            HEMA CHEMICAL INDUSTRIES is a leading chemical manufacturing company focused on providing
             high-quality, eco-friendly, and innovative chemical products. Our team of
             experts ensures that all our products meet the highest industry standards.
           </p>

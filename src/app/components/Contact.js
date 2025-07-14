@@ -6,6 +6,7 @@ export default function Contact() {
       id="contact"
       className="py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50"
     >
+        
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Contact Form Card */}
         <div className="bg-white/90 rounded-2xl shadow-xl border border-blue-100 p-8 flex flex-col justify-center">
