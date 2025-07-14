@@ -29,7 +29,6 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section className="relative py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50 overflow-hidden">
-      
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-extrabold text-blue-900 mb-4">What our customers say</h2>
@@ -48,7 +47,7 @@ export default function TestimonialsSection() {
               <FaQuoteLeft className="absolute -top-8 left-1/2 -translate-x-1/2 text-cyan-100 text-7xl opacity-20 pointer-events-none" />
               {/* Foreground quote icon */}
               <FaQuoteLeft className="text-cyan-400 text-3xl mb-4 relative z-10" />
-              <p className="text-gray-700 mb-6 italic relative z-10">"{t.text}"</p>
+              <p className="text-gray-700 mb-6 italic relative z-10">&ldquo;{t.text}&rdquo;</p>
               <img
                 src={t.image}
                 alt={t.name}
