@@ -5,24 +5,11 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
-  FaChevronDown,
 } from "react-icons/fa";
-
-const productList = [
-  { name: "Basic Chromium Sulphate", href: "#bcs" },
-  { name: "Basic Chromium Sulphate Liquid", href: "#bcsl" },
-  { name: "Boric Acid", href: "#boric-acid" },
-  { name: "Manganese Dioxide", href: "#manganese-dioxide" },
-  { name: "Saccharin Sodium", href: "#saccharin-sodium" },
-  { name: "Sodium Nitrate", href: "#sodium-nitrate" },
-  { name: "Saccharin Insoluble", href: "#saccharin-insoluble" },
-];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [productDropdown, setProductDropdown] = useState(false);
-  const [mobileProductDropdown, setMobileProductDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,19 +18,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Close dropdown when clicking outside (desktop)
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (!e.target.closest(".product-dropdown")) {
-        setProductDropdown(false);
-      }
-    };
-    if (productDropdown) {
-      document.addEventListener("mousedown", handleClick);
-    }
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [productDropdown]);
 
   return (
     <nav
@@ -83,38 +57,13 @@ export default function Navbar() {
                 About Us
               </a>
             </li>
-            {/* Products Dropdown */}
-            <li
-              className="relative product-dropdown"
-              onMouseEnter={() => setProductDropdown(true)}
-              onMouseLeave={() => setProductDropdown(false)}
-            >
-              <button
-                className="flex items-center gap-1 hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded"
-                onClick={() => setProductDropdown((v) => !v)}
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={productDropdown}
+            <li>
+              <a
+                href="#products"
+                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Products
-                <FaChevronDown className={`transition-transform duration-200 ${productDropdown ? "rotate-180" : ""}`} size={14} />
-              </button>
-              {/* Dropdown menu */}
-              {productDropdown && (
-                <ul className="absolute left-0 mt-1 w-56 bg-white text-blue-900 rounded-xl shadow-lg py-2 z-50 animate-fade-in">
-                  {productList.map((product) => (
-                    <li key={product.name}>
-                      <a
-                        href={product.href}
-                        className="block px-5 py-2 hover:bg-blue-50 hover:text-blue-700 transition rounded"
-                        onClick={() => setProductDropdown(false)}
-                      >
-                        {product.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              </a>
             </li>
             <li>
               <a
@@ -232,36 +181,14 @@ export default function Navbar() {
                 About Us
               </a>
             </li>
-            {/* Mobile Products Dropdown */}
-            <li className="w-full">
-              <button
-                className="flex items-center justify-between w-full hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded"
-                onClick={() => setMobileProductDropdown((v) => !v)}
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={mobileProductDropdown}
+            <li>
+              <a
+                href="#products"
+                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
+                onClick={() => setIsOpen(false)}
               >
-                <span>Products</span>
-                <FaChevronDown className={`ml-2 transition-transform duration-200 ${mobileProductDropdown ? "rotate-180" : ""}`} size={14} />
-              </button>
-              {mobileProductDropdown && (
-                <ul className="mt-2 bg-blue-900/80 rounded-lg shadow-inner">
-                  {productList.map((product) => (
-                    <li key={product.name}>
-                      <a
-                        href={product.href}
-                        className="block px-5 py-2 hover:bg-blue-700/60 transition rounded text-left"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setMobileProductDropdown(false);
-                        }}
-                      >
-                        {product.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                Products
+              </a>
             </li>
             <li>
               <a
@@ -284,14 +211,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      {/* Optional: Fade-in animation for dropdown */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(10px);}
-          to { opacity: 1; transform: translateY(0);}
-        }
-        .animate-fade-in { animation: fade-in 0.2s both; }
-      `}</style>
     </nav>
   );
 }
