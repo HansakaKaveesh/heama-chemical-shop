@@ -12,13 +12,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-blue-800/80 backdrop-blur-md text-white px-6 py-4 rounded-xl shadow-lg">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2 text-2xl font-bold tracking-wide flex-shrink-0">
-          <FaFlask className="text-cyan-300" />
-          <span className="text-white">Heama Chemicals</span>
-        </div>
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-blue-800/80 backdrop-blur-md text-white px-6  rounded-xl shadow-lg">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo replaced with image */}
+<div className="flex items-center gap-4 flex-shrink-0">
+  <img
+    src="/logo.png"
+    alt="Heama Chemicals Logo"
+    className="w-16 h-16 object-contain"
+  />
+<span className="text-lg font-bold tracking-wide text-white">
+  Heama Chemicals
+</span>
+
+</div>
 
         {/* Hamburger button for mobile */}
         <button
