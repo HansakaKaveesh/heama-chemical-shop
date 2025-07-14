@@ -24,7 +24,7 @@ export default function About() {
 
           {/* Mission Statement */}
           <p className="text-gray-600 italic mb-8 text-lg max-w-xl">
-            "Committed to sustainability and excellence in every product we create."
+            Committed to sustainability and excellence in every product we create.
           </p>
 
           {/* Call to Action */}
