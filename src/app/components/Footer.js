@@ -11,7 +11,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Logo / About */}
         <div>
-          <h2 className="text-2xl font-bold mb-2">Heama Chemicals</h2>
+          <div className="flex justify-center md:justify-start items-center gap-3 mb-2">
+            {/* 🧪 Company Logo */}
+            <img src="/logo.png" alt="Heama Logo" className="h-10" />
+            <h2 className="text-2xl font-bold">Heama Chemicals</h2>
+          </div>
           <p className="text-sm text-gray-300">
             Supplying high-quality chemicals for industrial, medical, and scientific excellence.
           </p>
@@ -44,8 +48,9 @@ export default function Footer() {
       <div className="border-t border-blue-700 mt-8 pt-4 text-sm text-center text-gray-400 space-y-2">
         <p>&copy; {new Date().getFullYear()} Heama Chemicals. All rights reserved.</p>
         <p className="flex justify-center items-center gap-2 text-gray-300">
-          {/* Logo (optional image or icon) */}
-          Designed & Developed by <img src="/singale logo.png" alt="Frithcode Logo" className="h-5" /><span className="text-white font-semibold ml-1">FrithCode Technologies</span>
+          Designed & Developed by
+          <img src="/singale logo.png" alt="Frithcode Logo" className="h-5" />
+          <span className="text-white font-semibold ml-1">FrithCode Technologies</span>
         </p>
       </div>
     </footer>
