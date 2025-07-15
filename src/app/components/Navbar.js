@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
@@ -38,53 +40,53 @@ export default function Navbar() {
           </span>
         </div>
 
-        {/* Centered Navigation links (Desktop) */}
+        {/* Desktop Navigation */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex">
           <ul className="flex flex-row space-x-8 text-base font-medium items-center">
             <li>
-              <a
+              <Link
                 href="/"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/about-us"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/products"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Products
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/blog"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/contact"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Hamburger button for mobile */}
+        {/* Hamburger button */}
         <button
           className="md:hidden text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded ml-4"
           onClick={() => setIsOpen(!isOpen)}
@@ -116,7 +118,7 @@ export default function Navbar() {
           </svg>
         </button>
 
-        {/* Social icons */}
+        {/* Social Icons */}
         <div className="hidden md:flex space-x-4 text-lg flex-shrink-0 ml-4">
           <a
             href="https://facebook.com"
@@ -156,7 +158,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Menu */}
         <div
           className={`md:hidden absolute top-full left-0 right-0 bg-blue-800/90 rounded-b-xl px-6 py-4 transition-all duration-300 ease-in-out ${
             isOpen ? "block" : "hidden"
@@ -164,49 +166,49 @@ export default function Navbar() {
         >
           <ul className="flex flex-col space-y-4 text-base font-medium items-center">
             <li>
-              <a
+              <Link
                 href="/"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/about-us"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/products"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
                 Products
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/blog"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/contact"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
