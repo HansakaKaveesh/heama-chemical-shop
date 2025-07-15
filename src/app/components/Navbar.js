@@ -43,7 +43,7 @@ export default function Navbar() {
           <ul className="flex flex-row space-x-8 text-base font-medium items-center">
             <li>
               <a
-                href="#home"
+                href="/"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Home
@@ -51,7 +51,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#about"
+                href="/about-us"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 About Us
@@ -59,7 +59,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#products"
+                href="/products"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Products
@@ -67,7 +67,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#blog"
+                href="/blog"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Blog
@@ -75,7 +75,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#contact"
+                href="/contact"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
               >
                 Contact
@@ -165,7 +165,7 @@ export default function Navbar() {
           <ul className="flex flex-col space-y-4 text-base font-medium items-center">
             <li>
               <a
-                href="#home"
+                href="/"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
@@ -174,7 +174,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#about"
+                href="/about-us"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
@@ -183,7 +183,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#products"
+                href="/products"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
@@ -192,7 +192,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#blog"
+                href="/blog"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
@@ -201,7 +201,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#contact"
+                href="/contact"
                 className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
                 onClick={() => setIsOpen(false)}
               >
