@@ -60,48 +60,66 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-white py-20 px-6">
-        <h2 className="text-3xl font-bold text-blue-800 text-center mb-10">
-          Our Core Values
-        </h2>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          {[
-            {
-              icon: <FaShieldAlt className="text-blue-700 text-3xl" />,
-              title: "Quality",
-              desc: "We never compromise on the quality of our products and services.",
-            },
-            {
-              icon: <FaUsers className="text-blue-700 text-3xl" />,
-              title: "Integrity",
-              desc: "We conduct our business with honesty, transparency, and respect.",
-            },
-            {
-              icon: <FaLightbulb className="text-blue-700 text-3xl" />,
-              title: "Innovation",
-              desc: "We embrace new ideas and technologies to serve our clients better.",
-            },
-            {
-              icon: <FaLeaf className="text-green-600 text-3xl" />,
-              title: "Sustainability",
-              desc: "We are committed to eco-friendly practices and a greener future.",
-            },
-          ].map((val, i) => (
-            <div
-              key={i}
-              className="bg-blue-50 hover:bg-white transition shadow-md p-6 rounded-xl flex gap-4 items-start border border-blue-100"
-            >
-              {val.icon}
-              <div>
-                <h3 className="text-xl font-semibold text-blue-800 mb-2">
-                  {val.title}
-                </h3>
-                <p className="text-gray-600">{val.desc}</p>
-              </div>
-            </div>
-          ))}
+<section
+  className="relative py-20 px-6 text-white"
+  style={{
+    backgroundImage: "url('https://admin.greenportfolio.co/getFile/222311-chemical-stocks-down-up-to-45-from-peak-should-you-stay-invested.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-white/80 "></div>
+
+  <div className="relative z-10 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold text-blue-800 text-center mb-10">
+      Our Core Values
+    </h2>
+    <div className="grid md:grid-cols-2 gap-8">
+      {[
+        {
+          icon: <FaShieldAlt className="text-blue-700 text-3xl" />,
+          title: "Quality",
+          desc:
+            "We never compromise on the quality of our products and services.",
+        },
+        {
+          icon: <FaUsers className="text-blue-700 text-3xl" />,
+          title: "Integrity",
+          desc:
+            "We conduct our business with honesty, transparency, and respect.",
+        },
+        {
+          icon: <FaLightbulb className="text-blue-700 text-3xl" />,
+          title: "Innovation",
+          desc:
+            "We embrace new ideas and technologies to serve our clients better.",
+        },
+        {
+          icon: <FaLeaf className="text-green-600 text-3xl" />,
+          title: "Sustainability",
+          desc:
+            "We are committed to eco-friendly practices and a greener future.",
+        },
+      ].map((val, i) => (
+        <div
+          key={i}
+          className="bg-white/90 hover:bg-green-100 transition shadow-md p-6 rounded-xl flex gap-4 items-start border border-blue-100 text-gray-800"
+        >
+          {val.icon}
+          <div>
+            <h3 className="text-xl font-semibold text-blue-800 mb-2">
+              {val.title}
+            </h3>
+            <p className="text-gray-700">{val.desc}</p>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Meet the Team */}
       <section className="py-20 px-6">
@@ -113,19 +131,19 @@ export default function AboutPage() {
             {
               name: "Dr. Priya Sharma",
               title: "R&D Head",
-              image: "/team1.jpg",
+              image: "https://thumbs.dreamstime.com/b/portrait-cheerful-smiling-young-man-folded-arms-joyful-handsome-men-crossed-hands-studio-shot-isolated-gray-195089624.jpg",
               desc: "Expert in chemical research and innovation.",
             },
             {
               name: "Mr. John Lee",
               title: "Procurement Manager",
-              image: "/team2.jpg",
+              image: "https://media.istockphoto.com/id/1644238002/photo/business-confidence-and-portrait-black-man-with-smile-in-office-startup-ceo-or-owner-at-hr.jpg?s=612x612&w=0&k=20&c=qv73OrrnOSfjzQuJiLOywdO2Ly7jsEmG6JhDXY1Qjc4=",
               desc: "Ensures timely and quality sourcing for clients.",
             },
             {
               name: "Ms. Aisha Patel",
               title: "Production Supervisor",
-              image: "/team3.jpg",
+              image: "https://img.freepik.com/free-photo/smiling-confident-businesswoman-posing-with-arms-folded_1262-20950.jpg?semt=ais_hybrid&w=740",
               desc: "Leads our manufacturing with precision and care.",
             },
           ].map((member, index) => (

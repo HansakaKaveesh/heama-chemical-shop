@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { FaVial, FaFlask, FaAtom } from "react-icons/fa";
 
 const products = [
@@ -39,6 +44,10 @@ const products = [
 ];
 
 export default function Products() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   return (
     <section
       id="products"
@@ -64,6 +73,8 @@ export default function Products() {
           {products.map((p, i) => (
             <div
               key={i}
+              data-aos="fade-up"
+              data-aos-delay={i * 100} // stagger animations
               className="p-4 bg-white bg-opacity-90 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-500 transform hover:-translate-y-2 hover:scale-105"
             >
               <div

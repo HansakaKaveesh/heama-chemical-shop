@@ -1,4 +1,7 @@
 "use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 const testimonials = [
@@ -47,10 +50,14 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="relative py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <h2 className="text-4xl font-extrabold text-blue-900 mb-4">What our customers say</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We’re proud to support leading companies and researchers. Here’s what they say about working with Heama Chemicals.
@@ -60,8 +67,9 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="relative bg-gradient-to-br from-white via-cyan-50 to-blue-50 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-l-4 border-cyan-400 hover:shadow-2xl hover:scale-105 transition-all duration-300 group animate-fade-in-up"
-              style={{ animationDelay: `${i * 0.15}s` }}
+              className="relative bg-gradient-to-br from-white via-cyan-50 to-blue-50 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-l-4 border-cyan-400 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay={i * 150}
             >
               {/* Large quote icon as background accent */}
               <FaQuoteLeft className="absolute -top-8 left-1/2 -translate-x-1/2 text-cyan-100 text-7xl opacity-20 pointer-events-none" />
@@ -92,14 +100,6 @@ export default function TestimonialsSection() {
           ))}
         </div>
       </div>
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(30px);}
-          to { opacity: 1; transform: translateY(0);}
-        }
-        .animate-fade-in-up { animation: fade-in-up 1s both; }
-      `}</style>
     </section>
   );
 }

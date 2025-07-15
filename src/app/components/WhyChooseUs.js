@@ -1,4 +1,8 @@
 "use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   FaCheckCircle,
   FaFlask,
@@ -11,19 +15,77 @@ import {
 } from "react-icons/fa";
 
 export default function ProductFeatureSection() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+  // Define features array here:
+  const features = [
+    {
+      icon: <FaFlask className="text-cyan-600 text-3xl" />,
+      title: "Advanced Purity",
+      text:
+        "Our chemicals are manufactured with the highest standards, ensuring exceptional purity for your critical applications.",
+    },
+    {
+      icon: <FaLeaf className="text-green-600 text-3xl" />,
+      title: "Eco-Friendly Process",
+      text:
+        "We use sustainable and environmentally responsible production methods, minimizing our ecological footprint.",
+    },
+    {
+      icon: <FaCheckCircle className="text-blue-600 text-3xl" />,
+      title: "Certified Quality",
+      text:
+        "All our products are rigorously tested and certified to meet international quality and safety standards.",
+    },
+    {
+      icon: <FaGlobe className="text-cyan-700 text-3xl" />,
+      title: "Global Distribution",
+      text:
+        "We serve clients worldwide with a robust logistics network, ensuring timely and safe delivery of our products.",
+    },
+    {
+      icon: <FaUserTie className="text-blue-800 text-3xl" />,
+      title: "Expert Support",
+      text:
+        "Our experienced team provides technical support and guidance to help you achieve the best results with our products.",
+    },
+    {
+      icon: <FaShieldAlt className="text-blue-500 text-3xl" />,
+      title: "Safe & Reliable",
+      text:
+        "Our products are designed with safety in mind, ensuring reliable performance and peace of mind for your operations.",
+    },
+    {
+      icon: <FaBolt className="text-yellow-500 text-3xl" />,
+      title: "Consistent Performance",
+      text:
+        "Experience consistent results batch after batch, thanks to our strict process controls and quality assurance.",
+    },
+    {
+      icon: <FaHandshake className="text-cyan-800 text-3xl" />,
+      title: "Trusted Partnerships",
+      text:
+        "We build long-term relationships with our clients, offering flexibility, transparency, and dedicated service.",
+    },
+  ];
+
   return (
     <section className="py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50">
       <div className="max-w-6xl mx-auto">
         {/* Section Heading */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-extrabold text-blue-900 mb-4">Why Choose Our Product?</h2>
+        <div className="mb-16 text-center" data-aos="fade-up">
+          <h2 className="text-4xl font-extrabold text-blue-900 mb-4">
+            Why Choose Our Product?
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover the unique features and benefits that set our chemical solutions apart in the industry.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Sticky Screenshot */}
-          <div className="md:sticky md:top-24">
+          <div className="md:sticky md:top-24" data-aos="fade-right">
             <div className="rounded-2xl shadow-2xl overflow-hidden border-4 border-transparent bg-white bg-clip-padding bg-gradient-to-br from-cyan-100 via-white to-blue-100 p-2">
               <img
                 src="/about.jpg"
@@ -35,99 +97,22 @@ export default function ProductFeatureSection() {
 
           {/* Content Sections */}
           <div className="space-y-12">
-            <div className="flex items-start gap-5 animate-fade-in-up">
-              <div className="flex-shrink-0 mt-1">
-                <FaFlask className="text-cyan-600 text-3xl" />
+            {features.map((feature, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-5"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <div className="flex-shrink-0 mt-1">{feature.icon}</div>
+                <div>
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-700">{feature.text}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Advanced Purity</h3>
-                <p className="text-gray-700">
-                  Our chemicals are manufactured with the highest standards, ensuring exceptional purity for your critical applications.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-5 animate-fade-in-up delay-100">
-              <div className="flex-shrink-0 mt-1">
-                <FaLeaf className="text-green-600 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Eco-Friendly Process</h3>
-                <p className="text-gray-700">
-                  We use sustainable and environmentally responsible production methods, minimizing our ecological footprint.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-5 animate-fade-in-up delay-200">
-              <div className="flex-shrink-0 mt-1">
-                <FaCheckCircle className="text-blue-600 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Certified Quality</h3>
-                <p className="text-gray-700">
-                  All our products are rigorously tested and certified to meet international quality and safety standards.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-5 animate-fade-in-up delay-300">
-              <div className="flex-shrink-0 mt-1">
-                <FaGlobe className="text-cyan-700 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Global Distribution</h3>
-                <p className="text-gray-700">
-                  We serve clients worldwide with a robust logistics network, ensuring timely and safe delivery of our products.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-5 animate-fade-in-up delay-400">
-              <div className="flex-shrink-0 mt-1">
-                <FaUserTie className="text-blue-800 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Expert Support</h3>
-                <p className="text-gray-700">
-                  Our experienced team provides technical support and guidance to help you achieve the best results with our products.
-                </p>
-              </div>
-            </div>
-            {/* New Feature 1 */}
-            <div className="flex items-start gap-5 animate-fade-in-up delay-500">
-              <div className="flex-shrink-0 mt-1">
-                <FaShieldAlt className="text-blue-500 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Safe & Reliable</h3>
-                <p className="text-gray-700">
-                  Our products are designed with safety in mind, ensuring reliable performance and peace of mind for your operations.
-                </p>
-              </div>
-            </div>
-            {/* New Feature 2 */}
-            <div className="flex items-start gap-5 animate-fade-in-up delay-600">
-              <div className="flex-shrink-0 mt-1">
-                <FaBolt className="text-yellow-500 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Consistent Performance</h3>
-                <p className="text-gray-700">
-                  Experience consistent results batch after batch, thanks to our strict process controls and quality assurance.
-                </p>
-              </div>
-            </div>
-            {/* New Feature 3 */}
-            <div className="flex items-start gap-5 animate-fade-in-up delay-700">
-              <div className="flex-shrink-0 mt-1">
-                <FaHandshake className="text-cyan-800 text-3xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Trusted Partnerships</h3>
-                <p className="text-gray-700">
-                  We build long-term relationships with our clients, offering flexibility, transparency, and dedicated service.
-                </p>
-              </div>
-            </div>
+            ))}
             {/* CTA Button */}
-            <div className="pt-6">
+            <div className="pt-6" data-aos="zoom-in" data-aos-delay={features.length * 100 + 200}>
               <a
                 href="#contact"
                 className="inline-block bg-blue-700 text-white px-8 py-3 rounded-full shadow hover:bg-cyan-700 transition-colors duration-300 font-semibold text-lg"
@@ -138,21 +123,6 @@ export default function ProductFeatureSection() {
           </div>
         </div>
       </div>
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(30px);}
-          to { opacity: 1; transform: translateY(0);}
-        }
-        .animate-fade-in-up { animation: fade-in-up 1s both; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        .delay-600 { animation-delay: 0.6s; }
-        .delay-700 { animation-delay: 0.7s; }
-      `}</style>
     </section>
   );
 }
