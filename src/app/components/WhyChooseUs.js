@@ -1,5 +1,14 @@
 "use client";
-import { FaCheckCircle, FaFlask, FaLeaf, FaGlobe, FaUserTie } from "react-icons/fa";
+import {
+  FaCheckCircle,
+  FaFlask,
+  FaLeaf,
+  FaGlobe,
+  FaUserTie,
+  FaShieldAlt,
+  FaBolt,
+  FaHandshake,
+} from "react-icons/fa";
 
 export default function ProductFeatureSection() {
   return (
@@ -81,6 +90,42 @@ export default function ProductFeatureSection() {
                 </p>
               </div>
             </div>
+            {/* New Feature 1 */}
+            <div className="flex items-start gap-5 animate-fade-in-up delay-500">
+              <div className="flex-shrink-0 mt-1">
+                <FaShieldAlt className="text-blue-500 text-3xl" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Safe & Reliable</h3>
+                <p className="text-gray-700">
+                  Our products are designed with safety in mind, ensuring reliable performance and peace of mind for your operations.
+                </p>
+              </div>
+            </div>
+            {/* New Feature 2 */}
+            <div className="flex items-start gap-5 animate-fade-in-up delay-600">
+              <div className="flex-shrink-0 mt-1">
+                <FaBolt className="text-yellow-500 text-3xl" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Consistent Performance</h3>
+                <p className="text-gray-700">
+                  Experience consistent results batch after batch, thanks to our strict process controls and quality assurance.
+                </p>
+              </div>
+            </div>
+            {/* New Feature 3 */}
+            <div className="flex items-start gap-5 animate-fade-in-up delay-700">
+              <div className="flex-shrink-0 mt-1">
+                <FaHandshake className="text-cyan-800 text-3xl" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Trusted Partnerships</h3>
+                <p className="text-gray-700">
+                  We build long-term relationships with our clients, offering flexibility, transparency, and dedicated service.
+                </p>
+              </div>
+            </div>
             {/* CTA Button */}
             <div className="pt-6">
               <a
@@ -104,6 +149,9 @@ export default function ProductFeatureSection() {
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
       `}</style>
     </section>
   );

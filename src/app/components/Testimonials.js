@@ -23,7 +23,27 @@ const testimonials = [
     image: "/customer3.jpg",
     rating: 4,
   },
-  // Add more testimonials as needed
+  {
+    name: "Dr. Michael Chen",
+    title: "Lead Scientist, GreenTech Labs",
+    text: "We appreciate Heama’s commitment to sustainability and their willingness to customize solutions for our unique needs.",
+    image: "/customer4.jpg",
+    rating: 5,
+  },
+  {
+    name: "Mrs. Fatima Al-Farsi",
+    title: "Quality Manager, Medix Solutions",
+    text: "Heama’s products have improved our production efficiency and quality. Their team is always ready to assist.",
+    image: "/customer5.jpg",
+    rating: 5,
+  },
+  {
+    name: "Mr. David Kim",
+    title: "Operations Director, ChemWorks",
+    text: "Reliable, innovative, and customer-focused. Heama Chemicals is our trusted partner for all our chemical requirements.",
+    image: "/customer6.jpg",
+    rating: 5,
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -40,8 +60,8 @@ export default function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="relative bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-blue-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 group animate-fade-in-up"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className="relative bg-gradient-to-br from-white via-cyan-50 to-blue-50 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border-l-4 border-cyan-400 hover:shadow-2xl hover:scale-105 transition-all duration-300 group animate-fade-in-up"
+              style={{ animationDelay: `${i * 0.15}s` }}
             >
               {/* Large quote icon as background accent */}
               <FaQuoteLeft className="absolute -top-8 left-1/2 -translate-x-1/2 text-cyan-100 text-7xl opacity-20 pointer-events-none" />
@@ -51,17 +71,19 @@ export default function TestimonialsSection() {
               <img
                 src={t.image}
                 alt={t.name}
-                className="w-16 h-16 rounded-full object-cover border-2 border-cyan-200 mb-3 relative z-10"
+                className="w-16 h-16 rounded-full object-cover border-2 border-cyan-200 mb-3 relative z-10 shadow"
+                loading="lazy"
               />
               <div className="relative z-10">
                 <div className="font-bold text-blue-900">{t.name}</div>
                 <div className="text-sm text-gray-500">{t.title}</div>
                 {/* Star rating */}
-                <div className="flex justify-center mt-2">
+                <div className="flex justify-center mt-2" aria-label={`Rated ${t.rating} out of 5`}>
                   {[...Array(5)].map((_, idx) => (
                     <FaStar
                       key={idx}
                       className={`text-yellow-400 ${idx < t.rating ? "" : "opacity-30"}`}
+                      aria-hidden="true"
                     />
                   ))}
                 </div>
