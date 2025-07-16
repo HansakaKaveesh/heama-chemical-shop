@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden shadow-2xl">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: "url('/3696093.jpg')" }}
+          style={{ backgroundImage: "url('/produt hero.jpg')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/70 backdrop-blur-sm" />
