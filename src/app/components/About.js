@@ -51,7 +51,7 @@ export default function About() {
         {/* Right Side - Image */}
         <div className="flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="100">
           <img
-            src="/about-removebg-preview.png"
+            src="/logo.png"
             alt="ChemTech manufacturing process"
             className="transition-transform transform hover:scale-105"
             style={{ maxWidth: "80%", height: "auto" }}

@@ -31,7 +31,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-4 flex-shrink-0">
           <img
-            src="/logo.png"
+            src="/logo W.png"
             alt="Heama Chemicals Logo"
             className="w-16 h-16 object-contain"
           />
