@@ -4,15 +4,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { TypeAnimation } from "react-type-animation";
-
-const products = [
-  "Basic Chromium Sulphate",
-  "Industrial Chemicals",
-  "Sustainable Additives",
-  "Eco-friendly Solutions",
-  "Advanced Catalysts",
-  "Custom Chemical Blends",
-];
+import Marquee from "react-fast-marquee";
 
 export default function Hero() {
   useEffect(() => {
@@ -22,9 +14,23 @@ export default function Hero() {
     });
   }, []);
 
+  // Example product names
+  const products = [
+    "Basic Chromium Sulphate",
+    "Sodium Dichromate",
+    "Potassium Dichromate",
+    "Chromic Acid",
+    "Sodium Sulphate",
+    "Sodium Sulphite",
+    "Sodium Thiosulphate",
+    "Sodium Meta Bisulphite",
+    "Sodium Bi Sulphite",
+    "Sodium Sulphide",
+  ];
+
   return (
     <section
-      className="relative text-white h-screen flex items-center px-6 text-center py-10 md:py-0 overflow-hidden"
+      className="relative text-white min-h-[80vh] h-screen flex items-center px-2 md:px-6 text-center py-10 md:py-0 overflow-hidden"
       aria-label="Hero section showcasing innovative chemical solutions"
     >
       {/* Background Video */}
@@ -41,7 +47,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-blue-900/50 z-10"></div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-3xl mx-auto flex flex-col items-center">
+      <div className="relative z-20 max-w-3xl mx-auto flex flex-col items-center w-full">
         <span
           className="mb-6 inline-block bg-white/20 border border-white/30 text-cyan-100 px-4 py-1 rounded-full text-xs font-semibold tracking-widest uppercase shadow backdrop-blur-sm"
           data-aos="fade-in"
@@ -51,7 +57,7 @@ export default function Hero() {
 
         {/* Typing Effect Heading */}
         <h1
-          className="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg transition-transform transform hover:scale-105 will-change-transform"
+          className="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-lg transition-transform transform hover:scale-105 will-change-transform"
           data-aos="fade-up"
         >
           <TypeAnimation
@@ -67,7 +73,7 @@ export default function Hero() {
         </h1>
 
         <h2
-          className="text-lg md:text-2xl font-medium mb-4 text-cyan-100/90"
+          className="text-base md:text-2xl font-medium mb-4 text-cyan-100/90"
           data-aos="fade-up"
           data-aos-delay="100"
         >
@@ -75,7 +81,7 @@ export default function Hero() {
         </h2>
 
         <p
-          className="text-base md:text-xl mb-8 opacity-90"
+          className="text-sm md:text-xl mb-8 opacity-90"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -84,7 +90,7 @@ export default function Hero() {
 
         <a
           href="#products"
-          className="inline-block bg-white text-blue-800 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition duration-300 transform hover:scale-105 will-change-transform"
+          className="inline-block bg-white text-blue-800 font-semibold px-6 md:px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition duration-300 transform hover:scale-105 will-change-transform"
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -92,42 +98,34 @@ export default function Hero() {
         </a>
 
         <p
-          className="mt-6 text-sm md:text-base opacity-80"
+          className="mt-6 text-xs md:text-base opacity-80"
           data-aos="fade-up"
           data-aos-delay="400"
         >
           Discover how our solutions can enhance your projects.
         </p>
-{/* Sliding Product Names Ticker */}
-        <div
-          className="relative w-full max-w-xl overflow-hidden whitespace-nowrap mt-12  border-cyan-400 pt-4"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div className="animate-slide flex gap-12 text-cyan-300 font-semibold text-xl md:text-2xl">
-            {/* Repeat product names twice for seamless loop */}
-            {[...products, ...products].map((product, idx) => (
-              <span key={idx} className="inline-block px-4">
+
+        {/* --- Product Name Slider --- */}
+        <div className="w-full overflow-x-hidden mt-8 md:mt-10" data-aos="fade-up" data-aos-delay="500">
+          <Marquee
+            gradient={false}
+            speed={40}
+            pauseOnHover={true}
+            pauseOnClick={true}
+            className="text-cyan-100 text-sm md:text-lg font-semibold"
+          >
+            {products.map((product, idx) => (
+              <span
+                key={idx}
+                className="mx-4 md:mx-8 whitespace-nowrap"
+              >
                 {product}
               </span>
             ))}
-          </div>
+          </Marquee>
         </div>
+        {/* --- End Product Name Slider --- */}
       </div>
-            <style jsx>{`
-        @keyframes slide {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-slide {
-          display: inline-flex;
-          animation: slide 20s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }
