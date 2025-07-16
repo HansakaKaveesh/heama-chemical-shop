@@ -78,7 +78,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
+                className="border-2 border-cyan-300 px-3 py-1 rounded-lg hover:text-cyan-200 hover:border-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 block"
               >
                 Contact
               </Link>
@@ -204,7 +204,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
+                className="border-2 border-cyan-300 px-3 py-1 rounded-lg hover:text-cyan-200 hover:border-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 block"
                 onClick={() => setIsOpen(false)}
               >
                 Contact

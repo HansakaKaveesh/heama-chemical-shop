@@ -2,9 +2,7 @@
 import {
   FaCheckCircle,
   FaLeaf,
-  FaLightbulb,
   FaShieldAlt,
-  FaUsers,
   FaPenFancy,
   FaTags,
   FaFlask,
@@ -185,19 +183,20 @@ export default function BlogPage() {
       {/* Call to Action */}
       <section
         className="bg-gradient-to-br from-cyan-100 to-blue-100 py-20 px-6 text-center"
-        data-aos="zoom-in-up"
+        
       >
-        <h2 className="text-3xl font-bold text-blue-800 mb-4 flex justify-center items-center gap-2">
-          <FaCheckCircle className="text-cyan-600" />
+        <h2 className="text-3xl font-bold text-blue-800 mb-4 flex justify-center items-center gap-2" data-aos="zoom-in-up">
+          <FaCheckCircle className="text-cyan-600"  />
           Want to Stay Updated?
         </h2>
-        <p className="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
+        <p className="max-w-2xl mx-auto text-lg text-gray-700 mb-8" data-aos="zoom-in-up">
           Subscribe to our newsletter for the latest articles, industry news, and exclusive insights from Heama Chemicals.
         </p>
         <form
           className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 justify-center"
           action="/subscribe"
           method="GET"
+          data-aos="zoom-in-up"
         >
           <input
             type="email"
