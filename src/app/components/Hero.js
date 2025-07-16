@@ -106,7 +106,7 @@ export default function Hero() {
         </p>
 
         {/* --- Product Name Slider --- */}
-        <div className="w-full overflow-x-hidden mt-8 md:mt-10"  data-aos-delay="500">
+        <div className="w-full overflow-x-hidden mt-8 md:mt-10" >
           <Marquee
             gradient={false}
             speed={40}
