@@ -85,7 +85,7 @@ export default function Hero() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          HEMA CHEMICAL INDUSTRIES is a leading manufacturer of BASIC CHROMIUM SULPHATE operating for more than 30 years.
+          HEMA CHEMICAL is a leading manufacturer of BASIC CHROMIUM SULPHATE operating for more than 30 years.
         </p>
 
         <a
