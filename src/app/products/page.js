@@ -545,7 +545,7 @@ useEffect(() => {
             Crafted with skin-loving ingredients and nourishing botanicals, our formula gently cleanses while locking in moisture,
             leaving your skin feeling soft, smooth, and rejuvenated after every wash. Infused with a refreshing fragrance that lingers just right,
             <span className="font-semibold text-blue-900"> Jonis Body Wash</span> transforms your daily shower into a luxurious self-care ritual.
-            Whether you're starting your morning or winding down at night, our body wash revitalizes your skin and senses.
+            Whether you are starting your morning or winding down at night, our body wash revitalizes your skin and senses.
             <br /><br />
             <span className="font-serif text-[1.1rem] block mt-2 text-gray-800">
               Elevate your shower routine with <span className="font-semibold text-blue-900">Jonis Body Wash</span> — where clean meets comfort.

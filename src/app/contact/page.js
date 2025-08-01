@@ -39,7 +39,7 @@ export default function ContactPage() {
             <FaPhone className="text-blue-700 text-3xl" />
             <div>
               <h3 className="text-xl font-semibold text-blue-900">Phone</h3>
-              <p className="text-gray-600">+94 71 234 5678</p>
+              <p className="text-gray-600">+94 77 344 1501</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-semibold text-blue-900">Location</h3>
               <p className="text-gray-600">
-                123 Chemical Park Road, Colombo, Sri Lanka
+                No. 55/3A1/1, Balapokuna Road, Kirulapona, Colombo-06.
               </p>
             </div>
           </div>

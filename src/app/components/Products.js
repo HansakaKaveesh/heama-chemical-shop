@@ -7,39 +7,76 @@ import { FaVial, FaFlask, FaAtom } from "react-icons/fa";
 
 const products = [
   {
-    icon: <FaVial />,
-    title: "Basic Chromium Sulphate",
-    description: "Used in leather tanning and other industrial applications.",
+    icon: <FaFlask />,
+    title: "Hydrogen Peroxide 50%",
+    description: "Strong oxidizer used in bleaching and disinfection.",
+    image: "/images/pro1.jpg",
   },
   {
-    icon: <FaFlask />,
-    title: "Basic Chromium Sulphate Liquid",
-    description: "Liquid form for specialized industrial processes.",
+    icon: <FaVial />,
+    title: "Soda Ash Light",
+    description: "Used in glass manufacturing, detergents, and paper.",
+    image: "/images/pro2.jpg",
   },
   {
     icon: <FaAtom />,
-    title: "Boric Acid",
-    description: "Versatile chemical for glass, ceramics, and antiseptics.",
-  },
-  {
-    icon: <FaVial />,
-    title: "Manganese Dioxide",
-    description: "Essential for batteries, glass, and ceramics manufacturing.",
+    title: "Sodium Sulfate",
+    description: "Commonly used in detergents and textile production.",
+    image: "/images/pro3.jpg",
   },
   {
     icon: <FaFlask />,
-    title: "Saccharin Sodium",
-    description: "High-intensity sweetener for food and beverage industries.",
+    title: "Tonsil Optimum 230 FF",
+    description: "Activated bleaching earth for edible oil purification.",
+    image: "/images/pro4.jpg",
+  },
+  {
+    icon: <FaVial />,
+    title: "Calcium Hypochlorite, Hydrated",
+    description: "Disinfectant widely used in water treatment and sanitation.",
+    image: "/images/pro5.jpg",
   },
   {
     icon: <FaAtom />,
     title: "Sodium Nitrate",
     description: "Used in fertilizers, explosives, and food preservation.",
+    image: "/images/pro6.jpg",
+  },
+  {
+    icon: <FaFlask />,
+    title: "Trichloroisocyanuric Acid",
+    description: "Powerful disinfectant for pools and industrial applications.",
+    image: "/images/pro7.jpg",
   },
   {
     icon: <FaVial />,
-    title: "Saccharin Insoluble",
-    description: "Insoluble form for specific industrial and food applications.",
+    title: "Aluminium Sulphate 17%",
+    description: "Coagulant used in water purification and paper manufacturing.",
+    image: "/images/pro8.jpg",
+  },
+  {
+    icon: <FaAtom />,
+    title: "Magnesium Sulfate Heptahydrate",
+    description: "Used in agriculture and medical applications (Epsom salt).",
+    image: "/images/pro9.jpg",
+  },
+  {
+    icon: <FaFlask />,
+    title: "Hydrated Lime Malaysia",
+    description: "Used in water treatment, construction, and agriculture.",
+    image: "/images/1000152735.jpg",
+  },
+  {
+    icon: <FaVial />,
+    title: "Nitric Acid 68%",
+    description: "Strong acid for fertilizers, explosives, and chemical synthesis.",
+    image: "/images/pro11.jpg",
+  },
+  {
+    icon: <FaAtom />,
+    title: "Caustic Soda Flakes",
+    description: "Essential in soap making, paper, and textile industries.",
+    image: "/images/pro12.jpg",
   },
 ];
 
@@ -61,10 +98,8 @@ export default function Products() {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Overlay for gradient and better contrast */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-cyan-50 opacity-80"></div>
 
-      {/* Content container needs relative and higher z-index */}
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <h2 className="text-4xl font-extrabold mb-10 text-blue-900 tracking-wide">
           Our Products
@@ -74,9 +109,14 @@ export default function Products() {
             <div
               key={i}
               data-aos="fade-up"
-              data-aos-delay={i * 100} // stagger animations
+              data-aos-delay={i * 100}
               className="p-4 bg-white bg-opacity-90 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-500 transform hover:-translate-y-2 hover:scale-105"
             >
+              <img
+                src={p.image}
+                alt={p.title}
+                className="w-full h-40 object-contain bg-white rounded-lg mb-4"
+              />
               <div
                 className="text-blue-600 mb-4 text-3xl mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-blue-100
                   hover:text-cyan-500 hover:bg-cyan-100 transition-colors duration-300
@@ -85,15 +125,7 @@ export default function Products() {
                 {p.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-900">{p.title}</h3>
-              <p className="text-gray-700 mb-4 text-sm">{p.description}</p>
-              <button
-                type="button"
-                className="cursor-pointer px-4 py-1 bg-blue-600 text-white rounded-full font-semibold text-sm
-                  hover:bg-cyan-600 transition-colors duration-300
-                  focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
-              >
-                Learn More
-              </button>
+              <p className="text-gray-700 text-sm">{p.description}</p>
             </div>
           ))}
         </div>

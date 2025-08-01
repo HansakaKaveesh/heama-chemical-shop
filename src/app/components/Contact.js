@@ -71,11 +71,11 @@ export default function Contact() {
           <div className="mt-8 space-y-3 text-left text-blue-900/90">
             <div className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-blue-600" />
-              <span>123 Industrial Road, City, Country</span>
+              <span>No. 55/3A1/1, Balapokuna Road, Kirulapona, Colombo-06.</span>
             </div>
             <div className="flex items-center gap-3">
               <FaPhoneAlt className="text-blue-600" />
-              <span>+1 234 567 8900</span>
+              <span>+94 77 344 1501</span>
             </div>
             <div className="flex items-center gap-3">
               <FaEnvelope className="text-blue-600" />
