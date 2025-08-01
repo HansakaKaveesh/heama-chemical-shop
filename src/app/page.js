@@ -6,7 +6,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Contact from "./components/Contact";
 import StatsSection from "./components/StatsSection";
 import TestimonialsSection from "./components/Testimonials";
-
+import OurProducts from "./components/our product";
 
 export default function Home() {
   return (
@@ -14,8 +14,9 @@ export default function Home() {
       
       <Hero />
       <About />
-      <Products />
+      <OurProducts />
       <WhyChooseUs />
+      <Products />
       <StatsSection />
       <TestimonialsSection />
       <Contact />

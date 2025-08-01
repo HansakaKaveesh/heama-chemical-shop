@@ -91,7 +91,7 @@ export default function Products() {
       className="py-16 px-4 relative"
       style={{
         backgroundImage:
-          "url('https://png.pngtree.com/thumb_back/fh260/background/20220401/pngtree-vibrant-home-cleaning-tools-under-sunny-skies-cleaning-house-chemical-photo-image_16880360.jpg')",
+          "url('https://logcargo.org/wp-content/uploads/2025/06/bf8f27a3cd.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -101,9 +101,12 @@ export default function Products() {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-cyan-50 opacity-80"></div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
-        <h2 className="text-4xl font-extrabold mb-10 text-blue-900 tracking-wide">
-          Our Products
+        <h2 className="text-4xl font-extrabold mb-2 text-blue-900 tracking-wide">
+          Our Chemicals
         </h2>
+        <p className="text-lg text-blue-700 mb-10 font-medium">
+          High-quality chemicals for industry, agriculture, water treatment, and more.
+        </p>
         <div className="grid md:grid-cols-3 gap-6">
           {products.map((p, i) => (
             <div
