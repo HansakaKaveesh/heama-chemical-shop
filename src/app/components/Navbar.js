@@ -2,7 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
+  FaHome,
+  FaInfoCircle,
+  FaBoxOpen,
+  FaBlog,
+  FaEnvelope,
   FaFacebookF,
   FaTwitter,
   FaLinkedinIn,
@@ -12,6 +18,7 @@ import {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +27,19 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { href: "/", label: "Home", icon: <FaHome /> },
+    { href: "/about-us", label: "About Us", icon: <FaInfoCircle /> },
+    { href: "/products", label: "Products", icon: <FaBoxOpen /> },
+    { href: "/blog", label: "Blog", icon: <FaBlog /> },
+    { href: "/contact", label: "Contact", icon: <FaEnvelope /> },
+  ];
+
+  const linkClasses = (path) =>
+    `${
+      pathname === path ? "text-cyan-300 font-semibold" : "hover:text-cyan-200"
+    } transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block flex items-center gap-2`;
 
   return (
     <nav
@@ -35,54 +55,27 @@ export default function Navbar() {
             alt="Heama Chemicals Logo"
             className="w-16 h-16 object-contain"
           />
-          <span className="text-lg font-bold tracking-wide text-white">
-            Heama Chemicals
-          </span>
+        
         </div>
 
         {/* Desktop Navigation */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex">
           <ul className="flex flex-row space-x-8 text-base font-medium items-center">
-            <li>
-              <Link
-                href="/"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about-us"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/products"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="border-2 border-cyan-300 px-3 py-1 rounded-lg hover:text-cyan-200 hover:border-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 block"
-              >
-                Contact
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={
+                    link.href === "/contact"
+                      ? `${linkClasses(link.href)}  px-3 py-1 hover:border-cyan-400`
+                      : linkClasses(link.href)
+                  }
+                >
+                  <span className="text-md">{link.icon}</span>
+                  <span className="text-md">{link.label}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -165,51 +158,22 @@ export default function Navbar() {
           }`}
         >
           <ul className="flex flex-col space-y-4 text-base font-medium items-center">
-            <li>
-              <Link
-                href="/"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about-us"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-                onClick={() => setIsOpen(false)}
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/products"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-                onClick={() => setIsOpen(false)}
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="hover:text-cyan-200 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block"
-                onClick={() => setIsOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="border-2 border-cyan-300 px-3 py-1 rounded-lg hover:text-cyan-200 hover:border-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 block"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={
+                    link.href === "/contact"
+                      ? `${linkClasses(link.href)}  px-3 py-1 hover:border-cyan-400`
+                      : linkClasses(link.href)
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className="text-lg">{link.icon}</span>
+                  <span>{link.label}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
