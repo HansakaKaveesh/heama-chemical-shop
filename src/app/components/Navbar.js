@@ -7,7 +7,7 @@ import {
   FaHome,
   FaInfoCircle,
   FaBoxOpen,
-  FaBlog,
+  FaIndustry,
   FaEnvelope,
   FaFacebookF,
   FaTwitter,
@@ -28,13 +28,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "/", label: "Home", icon: <FaHome /> },
-    { href: "/about-us", label: "About Us", icon: <FaInfoCircle /> },
-    { href: "/products", label: "Products", icon: <FaBoxOpen /> },
-    { href: "/blog", label: "Blog", icon: <FaBlog /> },
-    { href: "/contact", label: "Contact", icon: <FaEnvelope /> },
-  ];
+const navLinks = [
+  { href: "/", label: "Home", icon: <FaHome /> },
+  { href: "/about-us", label: "About Us", icon: <FaInfoCircle /> },
+  { href: "/products", label: "Products", icon: <FaBoxOpen /> },
+  { href: "/manufacturing", label: "Manufacturing", icon: <FaIndustry /> },
+  { href: "/contact", label: "Contact", icon: <FaEnvelope /> },
+];
 
   const linkClasses = (path) =>
     `${
