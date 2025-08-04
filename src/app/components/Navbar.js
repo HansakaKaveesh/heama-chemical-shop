@@ -1,182 +1,86 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import {
-  FaHome,
-  FaInfoCircle,
-  FaBoxOpen,
-  FaIndustry,
-  FaEnvelope,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa";
+import { Menu, X, FlaskRound as Flask } from "lucide-react";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-const navLinks = [
-  { href: "/", label: "Home", icon: <FaHome /> },
-  { href: "/about-us", label: "About Us", icon: <FaInfoCircle /> },
-  { href: "/products", label: "Products", icon: <FaBoxOpen /> },
-  { href: "/manufacturing", label: "Manufacturing", icon: <FaIndustry /> },
-  { href: "/contact", label: "Contact", icon: <FaEnvelope /> },
-];
-
-  const linkClasses = (path) =>
-    `${
-      pathname === path ? "text-cyan-300 font-semibold" : "hover:text-cyan-200"
-    } transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded block flex items-center gap-2`;
-
   return (
-    <nav
-      className={`fixed top-4 left-4 right-4 z-50 px-6 rounded-xl transition-colors duration-300
-        ${scrolled ? "bg-blue-800/80 backdrop-blur-md shadow-lg" : "bg-transparent"}
-        text-white`}
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
-        {/* Logo */}
-        <div className="flex items-center gap-4 flex-shrink-0">
-          <img
-            src="/logo W.png"
-            alt="Heama Chemicals Logo"
-            className="w-16 h-16 object-contain"
-          />
-        
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <Flask className="h-8 w-8 text-blue-600" />
+            <span className="text-2xl font-bold text-gray-900">ChemiDen</span>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex">
-          <ul className="flex flex-row space-x-8 text-base font-medium items-center">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={
-                    link.href === "/contact"
-                      ? `${linkClasses(link.href)}  px-3 py-1 hover:border-cyan-400`
-                      : linkClasses(link.href)
-                  }
-                >
-                  <span className="text-md">{link.icon}</span>
-                  <span className="text-md">{link.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <a href="#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
+            <a href="#about" className="text-gray-700 hover:text-blue-600 transition">About Us</a>
+            <a href="#products" className="text-gray-700 hover:text-blue-600 transition">Products</a>
+            <a href="#manufacturing" className="text-gray-700 hover:text-blue-600 transition">Manufacturing</a>
+            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
+          </nav>
 
-        {/* Hamburger button */}
-        <button
-          className="md:hidden text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded ml-4"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+              Get Quote
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2" onClick={toggleMenu}>
+            {isMenuOpen ? (
+              <X className="h-6 w-6 text-gray-700" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <Menu className="h-6 w-6 text-gray-700" />
             )}
-          </svg>
-        </button>
-
-        {/* Social Icons */}
-        <div className="hidden md:flex space-x-4 text-lg flex-shrink-0 ml-4">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="hover:text-blue-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
-          >
-            <FaFacebookF className="transition-transform duration-200 ease-in-out hover:scale-110" />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="hover:text-sky-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded"
-          >
-            <FaTwitter className="transition-transform duration-200 ease-in-out hover:scale-110" />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-blue-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 rounded"
-          >
-            <FaLinkedinIn className="transition-transform duration-200 ease-in-out hover:scale-110" />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="hover:text-pink-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 rounded"
-          >
-            <FaInstagram className="transition-transform duration-200 ease-in-out hover:scale-110" />
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`md:hidden absolute top-full left-0 right-0 bg-blue-800/90 rounded-b-xl px-6 py-4 transition-all duration-300 ease-in-out ${
-            isOpen ? "block" : "hidden"
-          }`}
-        >
-          <ul className="flex flex-col space-y-4 text-base font-medium items-center">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={
-                    link.href === "/contact"
-                      ? `${linkClasses(link.href)}  px-3 py-1 hover:border-cyan-400`
-                      : linkClasses(link.href)
-                  }
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="text-lg">{link.icon}</span>
-                  <span>{link.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+              <a href="#home" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+              <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-blue-600">About Us</a>
+              <a href="#products" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Products</a>
+              <a href="#manufacturing" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Manufacturing</a>
+              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+              <button className="w-full text-left bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 mt-4 transition">
+                Get Quote
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-    </nav>
+    </header>
   );
-}
+};
+
+export default Header;

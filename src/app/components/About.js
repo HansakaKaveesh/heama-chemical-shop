@@ -1,63 +1,99 @@
-"use client";
+import React from 'react';
+import { CheckCircle, Target, Eye, Heart } from 'lucide-react';
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+const About = () => {
+  const values = [
+    {
+      icon: Target,
+      title: "Precision",
+      description: "We deliver accurate results with meticulous attention to detail in every project."
+    },
+    {
+      icon: Eye,
+      title: "Innovation",
+      description: "Constantly pushing boundaries with cutting-edge research and advanced methodologies."
+    },
+    {
+      icon: Heart,
+      title: "Integrity",
+      description: "Building trust through transparency, ethical practices, and reliable partnerships."
+    }
+  ];
 
-export default function About() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
+  const achievements = [
+    "ISO 9001:2015 Certified Quality Management",
+    "25+ Years of Industry Experience",
+    "500+ Successful Projects Completed",
+    "State-of-the-Art Laboratory Facilities",
+    "Expert Team of Certified Chemists",
+    "Environmental Sustainability Focus"
+  ];
 
   return (
-    <section
-      id="about"
-      className="py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50 relative overflow-hidden"
-    >
-      {/* Decorative background shape */}
-      <div
-        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200 rounded-full opacity-20 blur-3xl pointer-events-none"
-        aria-hidden="true"
-      ></div>
+    <section id="about" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                About <span className="text-blue-600">ChemiDen</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                Since 1999, ChemiDen has been at the forefront of chemical innovation, providing 
+                world-class solutions to industries ranging from pharmaceuticals to manufacturing. 
+                Our commitment to excellence and sustainability drives everything we do.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                With our state-of-the-art facilities and team of expert chemists, we deliver 
+                precise, reliable, and innovative chemical solutions that help our clients 
+                achieve their goals while maintaining the highest safety and environmental standards.
+              </p>
+            </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Left Side - Text Content */}
-        <div className="text-left" data-aos="fade-right">
-          <h2 className="text-4xl font-extrabold mb-6 text-blue-900 tracking-tight">
-            About Us
-          </h2>
-          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-            HEMA CHEMICAL is a leading chemical manufacturing company focused on providing
-            high-quality, eco-friendly, and innovative chemical products. Our team of
-            experts ensures that all our products meet the highest industry standards.
-          </p>
+            {/* Achievements */}
+            <div className="space-y-3">
+              {achievements.map((achievement, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700">{achievement}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          {/* Mission Statement */}
-          <p className="text-gray-600 italic mb-8 text-lg max-w-xl">
-            Committed to sustainability and excellence in every product we create.
-          </p>
+          {/* Image and Values */}
+          <div className="space-y-8">
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Chemical Research Team"
+                className="rounded-2xl shadow-xl w-full h-80 object-cover"
+              />
+            </div>
 
-          {/* Call to Action */}
-          <a
-            href="#products"
-            className="inline-block bg-blue-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            Learn More About Our Products
-          </a>
-        </div>
-
-        {/* Right Side - Image */}
-        <div className="flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="100">
-          <img
-            src="/logo.png"
-            alt="ChemTech manufacturing process"
-            className="transition-transform transform hover:scale-105"
-            style={{ maxWidth: "80%", height: "auto" }}
-          />
+            {/* Values */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-gray-900">Our Core Values</h3>
+              <div className="space-y-4">
+                {values.map((value, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg flex-shrink-0">
+                      <value.icon className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-1">{value.title}</h4>
+                      <p className="text-gray-600">{value.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default About;
