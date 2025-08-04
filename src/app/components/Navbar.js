@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, FlaskRound as Flask } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,9 +28,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!hasMounted) {
-    return null;
-  }
+  if (!hasMounted) return null;
 
   return (
     <header
@@ -44,21 +43,32 @@ const Header = () => {
             <img
               src="/images/logo.png"
               alt="Heama Logo"
-              className="h-10 w-20"
+              className="h-10 w-auto object-contain"
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 transition">Home</Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition">About Us</Link>
-            <Link href="/products" className="text-gray-700 hover:text-blue-600 transition">Products</Link>
-            <Link href="/manufacturing" className="text-gray-700 hover:text-blue-600 transition">Manufacturing</Link>
+            <Link href="/" className="text-gray-700 hover:text-blue-600 transition">
+              Home
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition">
+              About Us
+            </Link>
+            <Link href="/products" className="text-gray-700 hover:text-blue-600 transition">
+              Products
+            </Link>
+            <Link href="/manufacturing" className="text-gray-700 hover:text-blue-600 transition">
+              Manufacturing
+            </Link>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link href="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+            <Link
+              href="/contact"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            >
               Contact Us
             </Link>
           </div>
@@ -76,12 +86,23 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</Link>
-              <Link href="/about" className="block px-3 py-2 text-gray-700 hover:text-blue-600">About Us</Link>
-              <Link href="/products" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Products</Link>
-              <Link href="/manufacturing" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Manufacturing</Link>
-              <Link href="/contact" className="w-full block bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 mt-4 transition text-center">
+            <div className="px-4 pt-4 pb-6 space-y-2 bg-white border-t border-gray-200">
+              <Link href="/" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+                Home
+              </Link>
+              <Link href="/about" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+                About Us
+              </Link>
+              <Link href="/products" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+                Products
+              </Link>
+              <Link href="/manufacturing" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+                Manufacturing
+              </Link>
+              <Link
+                href="/contact"
+                className="block bg-blue-600 text-white text-center px-3 py-2 rounded-lg hover:bg-blue-700 transition mt-4"
+              >
                 Contact Us
               </Link>
             </div>
