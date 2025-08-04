@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50"
+      className="py-20 px-6 bg-white"
     >
         
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">

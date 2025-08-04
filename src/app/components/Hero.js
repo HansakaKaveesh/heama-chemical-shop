@@ -3,7 +3,7 @@ import { ArrowRight, Award, Users, Zap } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className=" bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center">
+    <section id="home" className=" bg-white min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -14,31 +14,14 @@ const Hero = () => {
                 <span className="text-blue-600"> Solutions</span> for Tomorrow
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Leading the industry with innovative chemical processes, sustainable solutions, and cutting-edge research. Our team of experts is dedicated to delivering excellence in every molecule, ensuring quality, safety, and environmental responsibility in all we do. With a legacy of trust and a passion for progress, we empower industries to thrive with dependable chemical advancements.
+                Leading the industry through groundbreaking chemical innovations, we specialize in sustainable processes, state-of-the-art research, and next-generation formulations that redefine what’s possible in science and industry. Our team of seasoned chemists, engineers, and researchers is committed to achieving excellence in every molecule—pushing the boundaries of quality, safety, and environmental responsibility. We don’t just supply chemicals; we engineer trust, drive transformation, and build lasting partnerships that empower industries to excel in a rapidly evolving global landscape. With decades of proven expertise and an unwavering focus on progress, we deliver dependable solutions that fuel tomorrow’s innovations today.
               </p>
 
             </div>
 
          
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-              <div className="text-center">
-                <Award className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">25+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <Users className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
-              </div>
-              <div className="text-center">
-                <Zap className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">99.9%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
-              </div>
-            </div>
+ 
           </div>
 
           {/* Image */}

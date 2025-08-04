@@ -80,55 +80,35 @@ const products = [
   },
 ];
 
-export default function Products() {
+export default function Chemicals() {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section
-      id="products"
-      className="py-16 px-4 relative"
-      style={{
-        backgroundImage:
-          "url('https://logcargo.org/wp-content/uploads/2025/06/bf8f27a3cd.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-cyan-50 opacity-80"></div>
-
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        <h2 className="text-4xl font-extrabold mb-2 text-blue-900 tracking-wide">
-          Our Chemicals
-        </h2>
-        <p className="text-lg text-blue-700 mb-10 font-medium">
-          High-quality chemicals for industry, agriculture, water treatment, and more.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
+    <section id="chemicals" className="py-20 px-4 bg-emerald-500 text-white">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-extrabold mb-10">Our Chemicals</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((p, i) => (
             <div
               key={i}
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay={i * 100}
-              className="p-4 bg-white bg-opacity-90 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-500 transform hover:-translate-y-2 hover:scale-105"
+              className="relative h-80 rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+              style={{
+                backgroundImage: `url(${p.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-40 object-contain bg-white rounded-lg mb-4"
-              />
-              <div
-                className="text-blue-600 mb-4 text-3xl mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-blue-100
-                  hover:text-cyan-500 hover:bg-cyan-100 transition-colors duration-300
-                  hover:scale-110"
-              >
-                {p.icon}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-opacity-70 transition duration-300 flex flex-col justify-center items-center text-white">
+                <div className="text-3xl mb-4 bg-white text-emerald-600 p-3 rounded-full shadow-lg">
+                  {p.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+                <p className="text-sm text-center max-w-xs">{p.description}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">{p.title}</h3>
-              <p className="text-gray-700 text-sm">{p.description}</p>
             </div>
           ))}
         </div>
