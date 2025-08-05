@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Heama Chemicals",
-  description: "High-quality chemicals for industrial, medical, and scientific applications.",
+  description: "Sri Lankan chemical supplier, industrial chemicals Sri Lanka, bulk chemical distributor Colombo.",
 };
 
 export default function RootLayout({ children }) {

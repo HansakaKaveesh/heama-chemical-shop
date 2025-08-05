@@ -24,8 +24,13 @@ const Hero = () => {
                   <span className="text-blue-600"> Solutions</span> for Tomorrow
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                  Leading the industry through groundbreaking chemical innovations, we specialize in sustainable processes, state-of-the-art research, and next-generation formulations that redefine what’s possible in science and industry. Our team of seasoned chemists, engineers, and researchers is committed to achieving excellence in every molecule—pushing the boundaries of quality, safety, and environmental responsibility. We don’t just supply chemicals; we engineer trust, drive transformation, and build lasting partnerships that empower industries to excel in a rapidly evolving global landscape. With decades of proven expertise and an unwavering focus on progress, we deliver dependable solutions that fuel tomorrow’s innovations today.
-                </p>
+  Heama Chemicals is a trusted Sri Lankan chemical supplier delivering high-quality industrial and specialty chemicals since 1999. With a reputation built on reliability, innovation, and technical excellence, we proudly serve a wide range of industries—including cosmetics, water treatment, construction, textiles, and laboratory research.
+  <br /><br />
+  As an ISO 9001:2015 certified company, we are committed to supplying safe, consistent, and sustainable chemical solutions tailored to the needs of modern industries. Our expert team and expanding product portfolio ensure that every client receives value, performance, and peace of mind.
+  <br /><br />
+  Whether you&apos;re a manufacturer, researcher, or industrial service provider, Heama Chemicals is your reliable partner for advanced chemical solutions—locally sourced, globally trusted.
+</p>
+
               </div>
             </div>
 
