@@ -52,7 +52,7 @@ const Header = () => {
             <Link href="/" className="text-gray-700 hover:text-blue-600 transition">
               Home
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition">
+            <Link href="/about-us" className="text-gray-700 hover:text-blue-600 transition">
               About Us
             </Link>
             <Link href="/products" className="text-gray-700 hover:text-blue-600 transition">
@@ -87,21 +87,38 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-4 pt-4 pb-6 space-y-2 bg-white border-t border-gray-200">
-              <Link href="/" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+              <Link
+                href="/"
+                className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Home
               </Link>
-              <Link href="/about" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+              <Link
+                href="/about-us"
+                className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 About Us
               </Link>
-              <Link href="/products" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+              <Link
+                href="/products"
+                className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Products
               </Link>
-              <Link href="/manufacturing" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition">
+              <Link
+                href="/manufacturing"
+                className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Manufacturing
               </Link>
               <Link
                 href="/contact"
                 className="block bg-blue-600 text-white text-center px-3 py-2 rounded-lg hover:bg-blue-700 transition mt-4"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us
               </Link>
