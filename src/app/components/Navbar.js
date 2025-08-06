@@ -196,6 +196,8 @@ const Header = () => {
           )}
         </div>
       </header>
+            {/* Spacer to prevent content from being hidden behind fixed bars */}
+      <div className="h-[72px] md:h-[80px]" />
     </>
   );
 };

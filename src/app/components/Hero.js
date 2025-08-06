@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const slides = [
@@ -54,32 +55,38 @@ export default function HeroSlider() {
             }}
           >
             <div className="absolute inset-0 bg-black/50" />
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <div className="relative z-10 flex flex-col items-start justify-center h-full text-left text-white px-8 md:px-30 max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
                 {slide.title}
               </h1>
               <p className="text-lg md:text-2xl mb-8 drop-shadow-lg">
                 {slide.description}
               </p>
+              <Link
+                href="/products"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow transition"
+              >
+                View Products
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-      <button
-        onClick={() => handleManualNav(prevSlide)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
-        aria-label="Previous Slide"
-      >
-        <FaArrowLeft size={24} />
-      </button>
-      <button
-        onClick={() => handleManualNav(nextSlide)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
-        aria-label="Next Slide"
-      >
-        <FaArrowRight size={24} />
-      </button>
+<button
+  onClick={() => handleManualNav(prevSlide)}
+  className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
+  aria-label="Previous Slide"
+>
+  <FaArrowLeft size={24} />
+</button>
+<button
+  onClick={() => handleManualNav(nextSlide)}
+  className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
+  aria-label="Next Slide"
+>
+  <FaArrowRight size={24} />
+</button>
 
       {/* Uncomment to enable navigation dots */}
       {/* 
