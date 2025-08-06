@@ -4,21 +4,9 @@ import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const slides = [
-  {
-    image: "/images/hero-bg.jpg",
-    title: "Welcome to Our Site",
-    description: "Discover amazing things with us.",
-  },
-  {
-    image: "/images/hero-bg2.jpg",
-    title: "Innovate & Inspire",
-    description: "We bring your ideas to life.",
-  },
-  {
-    image: "/images/hero-bg3.jpg",
-    title: "Join Our Journey",
-    description: "Be a part of something great.",
-  },
+  { image: "/images/heri01.png" },
+  { image: "/images/heri02.png" },
+  { image: "/images/hero03.png" },
 ];
 
 export default function HeroSlider() {
@@ -40,9 +28,11 @@ export default function HeroSlider() {
 
   return (
     <section className="relative h-screen overflow-hidden">
+      {/* Sliding Backgrounds */}
       <div
         className="absolute inset-0 w-full h-full flex transition-transform duration-700"
         style={{ transform: `translateX(-${current * 100}%)` }}
+        aria-hidden="true"
       >
         {slides.map((slide, idx) => (
           <div
@@ -54,55 +44,33 @@ export default function HeroSlider() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/50" />
-            <div className="relative z-10 flex flex-col items-start justify-center h-full text-left text-white px-8 md:px-30 max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                {slide.title}
-              </h1>
-              <p className="text-lg md:text-2xl mb-8 drop-shadow-lg">
-                {slide.description}
-              </p>
-              <Link
-                href="/products"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow transition"
-              >
-                View Products
-              </Link>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
           </div>
         ))}
       </div>
 
-<button
-  onClick={() => handleManualNav(prevSlide)}
-  className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
-  aria-label="Previous Slide"
->
-  <FaArrowLeft size={24} />
-</button>
-<button
-  onClick={() => handleManualNav(nextSlide)}
-  className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-3 rounded-full z-20 transition"
-  aria-label="Next Slide"
->
-  <FaArrowRight size={24} />
-</button>
-
-      {/* Uncomment to enable navigation dots */}
-      {/* 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => handleManualNav(() => setCurrent(idx))}
-            className={`w-3 h-3 rounded-full ${
-              current === idx ? "bg-white" : "bg-white/50"
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
+      {/* Fixed Content */}
+      <div className="relative z-10 flex flex-col items-start justify-center h-full text-left text-white px-8 md:px-24 max-w-4xl mt-8">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+           Welcome to <br />
+                  <span className="text-blue-600">Heama Chemicals</span>
+        </h1>
+        <p className="text-lg md:text-1xl mb-8 drop-shadow-lg text-font-inter">
+          Heama Chemicals is a trusted Sri Lankan chemical supplier delivering high-quality industrial and specialty chemicals since 1999. With a reputation built on reliability, innovation, and technical excellence, we proudly serve a wide range of industries—including cosmetics, water treatment, construction, textiles, and laboratory research.
+                  <br /><br />
+                  As an ISO 9001:2015 certified company, we are committed to supplying safe, consistent, and sustainable chemical solutions tailored to the needs of modern industries. Our expert team and expanding product portfolio ensure that every client receives value, performance, and peace of mind.
+                  <br /><br />
+                  Whether you&apos;re a manufacturer, researcher, or industrial service provider, Heama Chemicals is your reliable partner for advanced chemical solutions—locally sourced, globally trusted.
+        </p>
+        <Link
+          href="/products"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow transition"
+        >
+          View Products
+        </Link>
       </div>
-      */}
+
+  
     </section>
   );
 }
