@@ -50,7 +50,7 @@ export default function HeroSlider() {
             }}
           >
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/70 to-transparent" />
           </div>
         ))}
       </div>
@@ -77,7 +77,7 @@ export default function HeroSlider() {
           Welcome to <br />
           <span className="text-blue-600">Heama Chemicals</span>
         </h1>
-        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter max-w-4xl">
+        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter max-w-3xl">
           Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
           high-quality industrial and specialty chemicals since 1999. With a
           reputation built on reliability, innovation, and technical excellence,
