@@ -1,82 +1,114 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const slides = [
+const slidesDesktop = [
   { image: "/images/heri01.png" },
   { image: "/images/heri02.png" },
   { image: "/images/hero03.png" },
 ];
 
+const slidesMobile = [
+  { image: "/images/heri01.png" },
+  { image: "/images/heri02.png" },
+  { image: "/images/hero03.png" },
+];
+
+// Mobile background image (single image or you can choose any)
+const mobileBgImage = "/images/hero-bg.jpg";
+
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const slideInterval = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const mobileSliderRef = useRef(null);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 640);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
-
-  const handleManualNav = (navFn) => {
-    clearInterval(slideInterval.current);
-    navFn();
-    slideInterval.current = setInterval(nextSlide, 5000);
-  };
+    setCurrent((prev) => (prev + 1) % (isMobile ? slidesMobile.length : slidesDesktop.length));
+  }, [isMobile]);
 
   useEffect(() => {
     slideInterval.current = setInterval(nextSlide, 5000);
     return () => clearInterval(slideInterval.current);
   }, [nextSlide]);
 
+  useEffect(() => {
+    if (isMobile && mobileSliderRef.current) {
+      const container = mobileSliderRef.current;
+      const slideWidth = container.firstChild?.clientWidth || 0;
+      container.scrollTo({
+        left: current * (slideWidth + 16), // 16 = space-x-4
+        behavior: "smooth",
+      });
+    }
+  }, [current, isMobile]);
+
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Sliding Backgrounds */}
+      {/* Desktop Sliding Backgrounds */}
       <div
-        className="absolute inset-0 w-full h-full flex transition-transform duration-700"
+        className="hidden sm:flex absolute inset-0 w-full h-full flex transition-transform duration-700"
         style={{ transform: `translateX(-${current * 100}%)` }}
         aria-hidden="true"
       >
-        {slides.map((slide, idx) => (
+        {slidesDesktop.map((slide, idx) => (
           <div
             key={idx}
             className="w-full h-full flex-shrink-0 relative bg-center bg-cover bg-no-repeat"
             style={{
               backgroundImage: `url(${slide.image})`,
-              backgroundPosition: "center right", // Show more of right side
+              backgroundPosition: "center",
+              backgroundSize: "cover",
             }}
           >
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/70 to-transparent" />
           </div>
         ))}
       </div>
 
-      {/* Optional Navigation Arrows */}
-      {/* <div className="absolute z-20 top-1/2 transform -translate-y-1/2 w-full px-4 flex justify-between">
-        <button
-          onClick={() => handleManualNav(prevSlide)}
-          className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-        >
-          <FaArrowLeft />
-        </button>
-        <button
-          onClick={() => handleManualNav(nextSlide)}
-          className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-        >
-          <FaArrowRight />
-        </button>
-      </div> */}
+      {/* Mobile Background behind content - only on mobile */}
+      <div
+        className="sm:hidden absolute inset-0 bg-center bg-cover bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${mobileBgImage})` }}
+        aria-hidden="true"
+      />
+      {/* Dark overlay on mobile background */}
+<div className="sm:hidden absolute inset-0 bg-black/80 z-5 pointer-events-none" />
 
-      {/* Text Content */}
-      <div className="relative z-10 flex flex-col items-center sm:items-start justify-center h-full w-full text-center  sm:text-left text-white px-4 sm:px-8 md:px-24 mt-8">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-8">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
           Welcome to <br />
           <span className="text-blue-600">Heama Chemicals</span>
         </h1>
+
+        {/* Mobile sliding images below the h1 */}
+        <div
+          ref={mobileSliderRef}
+          className="sm:hidden flex space-x-4 overflow-x-auto no-scrollbar mb-8 w-full max-w-2xl scroll-smooth"
+        >
+          {slidesMobile.map((slide, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 w-full h-40 bg-center bg-cover  relative"
+              style={{
+                backgroundImage: `url(${slide.image})`,
+              }}
+            >
+             
+            </div>
+          ))}
+        </div>
+
         <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-bold max-w-2xl text-justify">
           Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
           high-quality industrial and specialty chemicals since 1999. With a
