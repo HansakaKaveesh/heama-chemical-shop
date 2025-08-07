@@ -77,7 +77,7 @@ export default function HeroSlider() {
           Welcome to <br />
           <span className="text-blue-600">Heama Chemicals</span>
         </h1>
-        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-bold max-w-3xl text-justify">
+        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-bold max-w-2xl text-justify">
           Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
           high-quality industrial and specialty chemicals since 1999. With a
           reputation built on reliability, innovation, and technical excellence,
