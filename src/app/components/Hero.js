@@ -85,7 +85,7 @@ export default function HeroSlider() {
 <div className="sm:hidden absolute inset-0 bg-black/80 z-5 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-8">
+      <div className="relative z-10 flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-12 sm:mt-8">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
           Welcome to <br />
           <span className="text-blue-600">Heama Chemicals</span>
@@ -112,14 +112,11 @@ export default function HeroSlider() {
         <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-bold max-w-2xl text-justify">
   {isMobile ? (
     <>
-      Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
-      high-quality industrial and specialty chemicals since 1999. We serve
-      industries including cosmetics, water treatment, construction, and
-      textiles—locally sourced, globally trusted.
-      <br />
-      Whether you&apos;re a manufacturer, researcher, or industrial service
-      provider, Heama Chemicals is your reliable partner for advanced
-      chemical solutions locally sourced, globally trusted.
+Heama Chemicals has been a trusted Sri Lankan supplier of industrial and specialty chemicals since 1999, serving industries from cosmetics and water treatment to construction, textiles, and research.
+<br />
+As an ISO 9001:2015 certified company, we provide safe, reliable, and sustainable solutions with expert support and a growing product range.
+<br />
+Whether you&apos;re a manufacturer, researcher, or service provider, we are your trusted partner for advanced, locally sourced, and globally trusted chemical solutions.
     </>
   ) : (
     <>
