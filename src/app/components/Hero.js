@@ -163,9 +163,9 @@ export default function HeroSlider() {
       aria-label="Featured highlights"
       onKeyDown={onKeyDown}
       tabIndex={0}
-      onMouseEnter={() => setIsPaused(true)}
+      onMouseEnter={() => setIsPaused(false)}
       onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
+      onFocus={() => setIsPaused(false)}
       onBlur={() => setIsPaused(false)}
     >
       {/* Desktop sliding backgrounds */}
