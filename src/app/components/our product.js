@@ -21,12 +21,12 @@ const productCategories = [
     products: [
       {
         name: "Aloe Vera Extract",
-        img: "https://tse4.mm.bing.net/th/id/OIP.8DNfF6u0-b3rz6nP432RDgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        img: "https://pinoyhyper.com/cdn/shop/files/16_214c5a60-42ff-47b5-b11f-b709e869214d.jpg?v=1738888249&width=600",
         description: "Natural skin-soothing extract rich in vitamins.",
       },
       {
         name: "Vitamin C Powder",
-        img: "https://plus.unsplash.com/premium_photo-1673294206737-edefb10dcbab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0",
+        img: "https://m.media-amazon.com/images/I/61vuatDw+bL._UF1000,1000_QL80_.jpg",
         description: "Brightening agent for skincare and cosmetics.",
       },
     ],
@@ -39,12 +39,12 @@ const productCategories = [
     products: [
       {
         name: "Shea Butter",
-        img: "https://images.unsplash.com/photo-1573812461383-e5f8b759d12e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0",
+        img: "https://www.thehealthplaceafrica.com/cdn/shop/products/image_531510cc-f854-4025-bcbd-21e8f78ade47.jpg?v=1631164486",
         description: "Deeply moisturizing butter for skin and hair.",
       },
       {
         name: "Essential Oils",
-        img: "https://images.unsplash.com/photo-1588167056572-fb3bce8b3d3b?q=80&w=500&auto=format&fit=crop",
+        img: "https://m.media-amazon.com/images/I/61pfDqM9GPL._UF894,1000_QL80_.jpg",
         description: "Natural aromatic oils for beauty and wellness.",
       },
     ],
@@ -57,12 +57,12 @@ const productCategories = [
     products: [
       {
         name: "Fabric Dye",
-        img: "https://images.unsplash.com/photo-1505322024881-9b8a4a79eebd?q=80&w=500&auto=format&fit=crop",
+        img: "https://www.ritdye.com/wp-content/uploads/2018/01/17247_071_Tif-1-scaled.jpg",
         description: "Vibrant and long-lasting fabric coloring solution.",
       },
       {
         name: "Screen Printing Ink",
-        img: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=500&auto=format&fit=crop",
+        img: "https://www.colorcroma.lk/images/s1.jpg",
         description: "High-quality ink for textile printing applications.",
       },
     ],
@@ -75,12 +75,12 @@ const productCategories = [
     products: [
       {
         name: "Tile Adhesive",
-        img: "https://images.unsplash.com/photo-1604370374301-b93e0d61a00a?q=80&w=500&auto=format&fit=crop",
+        img: "https://5.imimg.com/data5/ANDROID/Default/2021/1/YR/FW/AZ/1498631/product-jpeg.jpg",
         description: "Strong adhesive for tile installation.",
       },
       {
         name: "Waterproof Coating",
-        img: "https://images.unsplash.com/photo-1598048151083-8f2f1c126a0a?q=80&w=500&auto=format&fit=crop",
+        img: "https://www.resincoat.co.uk/2870-large_default/resincoat-waterproof-tanking-paint.jpg",
         description: "Protective coating to prevent water damage.",
       },
     ],
@@ -93,12 +93,12 @@ const productCategories = [
     products: [
       {
         name: "Beakers",
-        img: "https://images.unsplash.com/photo-1581094794329-c8112a89f0b7?q=80&w=500&auto=format&fit=crop",
+        img: "https://pixabay.com/get/g3253e5e820649412d3ab15df0ee6edfb1602f9cd188389af5ca2018e465867352f8a5a30afcfecd6bdb3890a849b9c65_1280.jpg",
         description: "Glass containers for mixing and measuring liquids.",
       },
       {
         name: "Microscope Slides",
-        img: "https://images.unsplash.com/photo-1581092335654-1f9cbf92bba4?q=80&w=500&auto=format&fit=crop",
+        img: "https://i5.walmartimages.com/seo/AmScope-Simple-Stain-Kit-of-Three-Chemicals-for-Preparing-Microscope-Slides_df2c5b1a-25e5-451c-9f6c-116165c813b0_1.2ac3b327769ab710abca20c2e8dfff98.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
         description: "Thin glass for holding specimens under a microscope.",
       },
     ],
@@ -111,12 +111,12 @@ const productCategories = [
     products: [
       {
         name: "Chlorine Tablets",
-        img: "https://images.unsplash.com/photo-1580479561645-1ef43d04e013?q=80&w=500&auto=format&fit=crop",
+        img: "https://image.made-in-china.com/2f0j00hwVWilZGwFqd/Swimming-Pool-Chemical-Chlorine-90-Pool-Chemicals-Chlorine-Tablets-Chlorine-Tablets-for-Pool.webp",
         description: "Effective disinfectant for water purification.",
       },
       {
         name: "Water Purification Powder",
-        img: "https://images.unsplash.com/photo-1614002229240-d3c89486e02a?q=80&w=500&auto=format&fit=crop",
+        img: "https://www.zhaoguangroup.com/uploads/28600/small/industrial-waste-water-treatment-powder13eb3.jpg?size=369x0",
         description: "Removes impurities and contaminants from water.",
       },
     ],
