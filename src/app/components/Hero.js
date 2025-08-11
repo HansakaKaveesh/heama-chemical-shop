@@ -28,8 +28,10 @@ export default function HeroSlider() {
   const sectionRef = useRef(null);
   const mobileSliderRef = useRef(null);
   const pointerStartX = useRef(null);
+  const prmRef = useRef(false); // keep a ref so we don't need to add PRM to every deps array
 
   const slides = isMobile ? slidesMobile : slidesDesktop;
+  const total = isMobile ? slidesMobile.length : slidesDesktop.length;
 
   // Detect mobile and reduced motion
   useEffect(() => {
@@ -38,24 +40,30 @@ export default function HeroSlider() {
     window.addEventListener("resize", handleResize);
 
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-    const onMQ = (e) => setPrefersReducedMotion(e.matches);
-    mq.addEventListener?.("change", onMQ);
+    const applyPRM = (m) => {
+      setPrefersReducedMotion(m.matches);
+      prmRef.current = m.matches;
+    };
+    applyPRM(mq);
+    const onMQ = (e) => applyPRM(e);
+    if (mq.addEventListener) mq.addEventListener("change", onMQ);
+    else mq.addListener(onMQ);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      mq.removeEventListener?.("change", onMQ);
+      if (mq.removeEventListener) mq.removeEventListener("change", onMQ);
+      else mq.removeListener(onMQ);
     };
   }, []);
 
   // Slide controls
   const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
+    setCurrent((prev) => (prev + 1) % total);
+  }, [total]);
 
   const prevSlide = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  }, [slides.length]);
+    setCurrent((prev) => (prev - 1 + total) % total);
+  }, [total]);
 
   // Autoplay with visibility + pause handling
   useEffect(() => {
@@ -64,20 +72,15 @@ export default function HeroSlider() {
     let timer;
     const start = () => {
       clearInterval(timer);
-      if (!isPaused) {
-        timer = setInterval(nextSlide, AUTO_DELAY);
-      }
+      if (!isPaused) timer = setInterval(nextSlide, AUTO_DELAY);
     };
     const stop = () => clearInterval(timer);
 
     start();
 
     const onVisibility = () => {
-      if (document.hidden) {
-        stop();
-      } else {
-        start();
-      }
+      if (document.hidden) stop();
+      else start();
     };
 
     document.addEventListener("visibilitychange", onVisibility);
@@ -85,23 +88,34 @@ export default function HeroSlider() {
       stop();
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [isPaused, nextSlide, prefersReducedMotion]);
+  }, [isPaused, nextSlide, prefersReducedMotion]); // constant length
 
-  // Scroll mobile slider to current
+  // Scroll mobile slider to current (no page jump)
   useEffect(() => {
-    if (isMobile && mobileSliderRef.current) {
-      const container = mobileSliderRef.current;
-      const slideEl = container.querySelector(`[data-idx="${current}"]`);
-      slideEl?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-    }
-  }, [current, isMobile]);
+    if (!isMobile || !mobileSliderRef.current) return;
+
+    const container = mobileSliderRef.current;
+    const slideEl = container.querySelector(`[data-idx="${current}"]`);
+    if (!slideEl) return;
+
+    const targetLeft =
+      slideEl.getBoundingClientRect().left -
+      container.getBoundingClientRect().left +
+      container.scrollLeft;
+
+    container.scrollTo({
+      left: targetLeft,
+      behavior: prmRef.current ? "auto" : "smooth",
+    });
+  }, [current, isMobile]); // constant length
 
   // Preload next image
   useEffect(() => {
-    const nextIdx = (current + 1) % slides.length;
+    const arr = isMobile ? slidesMobile : slidesDesktop;
+    const nextIdx = (current + 1) % arr.length;
     const img = new Image();
-    img.src = slides[nextIdx].image;
-  }, [current, slides]);
+    img.src = arr[nextIdx].image;
+  }, [current, isMobile]); // constant length
 
   // Swipe gestures (desktop + mobile)
   useEffect(() => {
@@ -132,7 +146,7 @@ export default function HeroSlider() {
       el.removeEventListener("touchstart", onPointerDown);
       el.removeEventListener("touchend", onPointerUp);
     };
-  }, [nextSlide, prevSlide]);
+  }, [nextSlide, prevSlide]); // constant length
 
   // Keyboard navigation
   const onKeyDown = (e) => {
@@ -154,8 +168,6 @@ export default function HeroSlider() {
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
     >
-      
-
       {/* Desktop sliding backgrounds */}
       <div
         className={`hidden sm:flex absolute inset-0 w-full h-full flex transition-transform ${
@@ -172,9 +184,7 @@ export default function HeroSlider() {
             role="img"
             aria-label={slide.alt}
           >
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/80 to-transparent" />
-            {/* Extra vignette */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(0,0,0,0.5)_100%)]" />
           </div>
         ))}
@@ -190,11 +200,9 @@ export default function HeroSlider() {
 
       {/* Content */}
       <div className="relative z-[2] flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-4 sm:mt-0">
-        {/* Badge */}
         <div className="mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 ring-1 ring-white/20 backdrop-blur">
-            ISO 9001:2015 Certified
-            <span aria-hidden>•</span> Since 1999
+            ISO 9001:2015 Certified <span aria-hidden>•</span> Since 1999
           </span>
         </div>
 
@@ -208,7 +216,8 @@ export default function HeroSlider() {
         {/* Mobile sliding images (scroll-snap) */}
         <div
           ref={mobileSliderRef}
-          className="sm:hidden flex gap-4 overflow-x-auto no-scrollbar mb-6 w-full max-w-2xl snap-x snap-mandatory scroll-smooth"
+          className="sm:hidden flex gap-4 overflow-x-auto no-scrollbar mb-6 w-full max-w-2xl snap-x snap-mandatory scroll-smooth overscroll-x-contain overscroll-y-none touch-pan-x"
+          style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}
           aria-label="Featured images"
         >
           {slidesMobile.map((slide, idx) => (
@@ -236,28 +245,25 @@ export default function HeroSlider() {
             </>
           ) : (
             <>
-                        Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
-              high-quality industrial and specialty chemicals since 1999. With a
-              reputation built on reliability, innovation, and technical excellence,
-              we proudly serve a wide range of industries including cosmetics, water
-              treatment, construction, textiles, and laboratory research.
+              Heama Chemicals is a trusted Sri Lankan chemical supplier delivering high-quality
+              industrial and specialty chemicals since 1999. With a reputation built on reliability,
+              innovation, and technical excellence, we proudly serve a wide range of industries
+              including cosmetics, water treatment, construction, textiles, and laboratory research.
               <br />
               <br />
-              As an ISO 9001:2015 certified company, we are committed to supplying
-              safe, consistent, and sustainable chemical solutions tailored to the
-              needs of modern industries. Our expert team and expanding product
-              portfolio ensure that every client receives value, performance, and
-              peace of mind.
+              As an ISO 9001:2015 certified company, we are committed to supplying safe, consistent,
+              and sustainable chemical solutions tailored to the needs of modern industries. Our expert
+              team and expanding product portfolio ensure that every client receives value,
+              performance, and peace of mind.
               <br />
               <br />
-              Whether you&apos;re a manufacturer, researcher, or industrial service
-              provider, Heama Chemicals is your reliable partner for advanced
-              chemical solutions locally sourced, globally trusted.
+              Whether you&apos;re a manufacturer, researcher, or industrial service provider, Heama
+              Chemicals is your reliable partner for advanced chemical solutions — locally sourced,
+              globally trusted.
             </>
           )}
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-wrap gap-3">
           <Link
             href="#products"
@@ -276,15 +282,12 @@ export default function HeroSlider() {
 
       {/* Dots + progress + arrows */}
       <div className="absolute bottom-6 left-0 right-0 z-[3] flex items-center justify-center">
-        {/* Progress bar */}
         {!prefersReducedMotion && (
           <div className="absolute -top-2 left-0 right-0 mx-auto w-[80%] sm:w-[60%] h-0.5 bg-white/20 overflow-hidden rounded">
-            {/* Restart animation on slide change by keying with current */}
             <div key={current} className="h-full bg-white/90 origin-left animate-progress" />
           </div>
         )}
 
-        {/* Dots */}
         <div className="flex items-center gap-3 px-3 py-2 rounded-full bg-black/30 backdrop-blur ring-1 ring-white/20">
           {slides.map((_, i) => {
             const active = i === current;
@@ -332,11 +335,11 @@ export default function HeroSlider() {
       {/* Local styles */}
       <style jsx>{`
         .no-scrollbar {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
         .no-scrollbar::-webkit-scrollbar {
-          display: none; /* Chrome, Safari, Opera */
+          display: none;
         }
         @keyframes progress {
           from {
