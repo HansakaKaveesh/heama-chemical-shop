@@ -189,7 +189,7 @@ export default function HeroSlider() {
       <div className="sm:hidden absolute inset-0 bg-black/80 z-0 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-[2] flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-12 sm:mt-0">
+      <div className="relative z-[2] flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-4 sm:mt-0">
         {/* Badge */}
         <div className="mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 ring-1 ring-white/20 backdrop-blur">
