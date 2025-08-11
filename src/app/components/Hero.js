@@ -70,7 +70,7 @@ export default function HeroSlider() {
               backgroundSize: "cover",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/60 to-transparent" />
           </div>
         ))}
       </div>
@@ -82,7 +82,7 @@ export default function HeroSlider() {
         aria-hidden="true"
       />
       {/* Dark overlay on mobile background */}
-<div className="sm:hidden absolute inset-0 bg-black/80 z-5 pointer-events-none" />
+      <div className="sm:hidden absolute inset-0 bg-black/80 z-5 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-12 sm:mt-8">
@@ -99,48 +99,48 @@ export default function HeroSlider() {
           {slidesMobile.map((slide, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-full h-40 bg-center bg-cover  relative"
+              className="flex-shrink-0 w-full h-40 bg-center bg-cover relative"
               style={{
                 backgroundImage: `url(${slide.image})`,
               }}
             >
-             
+              {/* Top-to-bottom gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none" />
             </div>
           ))}
         </div>
 
         <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-bold max-w-2xl text-justify">
-  {isMobile ? (
-    <>
-Heama Chemicals has been a trusted Sri Lankan supplier of industrial and specialty chemicals since 1999, serving industries from cosmetics and water treatment to construction, textiles, and research.
-<br />
-As an ISO 9001:2015 certified company, we provide safe, reliable, and sustainable solutions with expert support and a growing product range.
-<br />
-Whether you&apos;re a manufacturer, researcher, or service provider, we are your trusted partner for advanced, locally sourced, and globally trusted chemical solutions.
-    </>
-  ) : (
-    <>
-      Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
-      high-quality industrial and specialty chemicals since 1999. With a
-      reputation built on reliability, innovation, and technical excellence,
-      we proudly serve a wide range of industries including cosmetics, water
-      treatment, construction, textiles, and laboratory research.
-      <br />
-      <br />
-      As an ISO 9001:2015 certified company, we are committed to supplying
-      safe, consistent, and sustainable chemical solutions tailored to the
-      needs of modern industries. Our expert team and expanding product
-      portfolio ensure that every client receives value, performance, and
-      peace of mind.
-      <br />
-      <br />
-      Whether you&apos;re a manufacturer, researcher, or industrial service
-      provider, Heama Chemicals is your reliable partner for advanced
-      chemical solutions locally sourced, globally trusted.
-    </>
-  )}
-</p>
-
+          {isMobile ? (
+            <>
+              Heama Chemicals has been a trusted Sri Lankan supplier of industrial and specialty chemicals since 1999, serving industries from cosmetics and water treatment to construction, textiles, and research.
+              <br />
+              As an ISO 9001:2015 certified company, we provide safe, reliable, and sustainable solutions with expert support and a growing product range.
+              <br />
+              Whether you&apos;re a manufacturer, researcher, or service provider, we are your trusted partner for advanced, locally sourced, and globally trusted chemical solutions.
+            </>
+          ) : (
+            <>
+              Heama Chemicals is a trusted Sri Lankan chemical supplier delivering
+              high-quality industrial and specialty chemicals since 1999. With a
+              reputation built on reliability, innovation, and technical excellence,
+              we proudly serve a wide range of industries including cosmetics, water
+              treatment, construction, textiles, and laboratory research.
+              <br />
+              <br />
+              As an ISO 9001:2015 certified company, we are committed to supplying
+              safe, consistent, and sustainable chemical solutions tailored to the
+              needs of modern industries. Our expert team and expanding product
+              portfolio ensure that every client receives value, performance, and
+              peace of mind.
+              <br />
+              <br />
+              Whether you&apos;re a manufacturer, researcher, or industrial service
+              provider, Heama Chemicals is your reliable partner for advanced
+              chemical solutions locally sourced, globally trusted.
+            </>
+          )}
+        </p>
       </div>
     </section>
   );
