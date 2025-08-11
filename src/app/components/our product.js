@@ -136,9 +136,8 @@ export default function Products() {
       id="products"
       className="relative py-24 px-4 bg-gradient-to-b from-emerald-600 via-emerald-700 to-emerald-800 text-white"
     >
-      {/* Decorative gradient blobs */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-300/25 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl" />
+     
+    
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
