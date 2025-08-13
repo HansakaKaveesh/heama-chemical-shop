@@ -20,14 +20,39 @@ const productCategories = [
       "https://t3.ftcdn.net/jpg/02/72/37/20/360_F_272372012_2aOGqAOdrJaFmaqlkGCHSvlcL2wrLUDD.jpg",
     products: [
       {
-        name: "Aloe Vera Extract",
-        img: "https://pinoyhyper.com/cdn/shop/files/16_214c5a60-42ff-47b5-b11f-b709e869214d.jpg?v=1738888249&width=600",
+        name: "Face Wash",
+        img: "images/face wash.png",
         description: "Natural skin-soothing extract rich in vitamins.",
       },
+       {
+        name: "Shampoo",
+        img: "images/shampoo.png",
+        description: "Natural hair-cleansing formula with essential nutrients.",
+      },
+        {
+        name: "Shampoo",
+        img: "images/shampoo2.png",
+        description: "Natural hair-cleansing formula with essential nutrients.",
+      },
+        {
+        name: "Powder",
+        img: "images/powder.png",
+        description: "Natural skin-soothing extract rich in vitamins.",
+      },
+        {
+        name: "Nail Polish Remover",
+        img: "images/nailpolish.png",
+        description: "Gentle formula for effective nail polish removal.",
+      },
       {
-        name: "Vitamin C Powder",
-        img: "https://m.media-amazon.com/images/I/61vuatDw+bL._UF1000,1000_QL80_.jpg",
-        description: "Brightening agent for skincare and cosmetics.",
+        name: "Whitening Leg Serum",
+        img: "images/leg.png",
+        description: "Gentle formula for effective leg whitening.",
+      },
+      {
+        name: "Hair Oil",
+        img: "images/hire oil.png",
+        description: "Gentle formula for effective hair nourishment.",
       },
     ],
   },
