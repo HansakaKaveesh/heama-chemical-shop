@@ -14,10 +14,10 @@ import {
 
 const productCategories = [
   {
-    title: "Cosmetic Ingredients",
+    title: "Personal Care Essentials",
     icon: <FaFlask />,
     image:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1187&auto=format&fit=crop",
+      "https://t3.ftcdn.net/jpg/02/72/37/20/360_F_272372012_2aOGqAOdrJaFmaqlkGCHSvlcL2wrLUDD.jpg",
     products: [
       {
         name: "Aloe Vera Extract",
@@ -32,25 +32,30 @@ const productCategories = [
     ],
   },
   {
-    title: "Personal Care Ingredients",
+    title: "Body Wash",
     icon: <FaSoap />,
     image:
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1170&auto=format&fit=crop",
+      "https://247wallst.com/wp-content/uploads/2024/03/shutterstock-1850208661-huge-licensed-scaled.jpg",
     products: [
       {
-        name: "Shea Butter",
-        img: "https://www.thehealthplaceafrica.com/cdn/shop/products/image_531510cc-f854-4025-bcbd-21e8f78ade47.jpg?v=1631164486",
-        description: "Deeply moisturizing butter for skin and hair.",
+        name: "Body Wash",
+        img: "images/body wash 01.png",
+        description: "Deeply moisturizing body wash for skin and hair.",
       },
       {
-        name: "Essential Oils",
-        img: "https://m.media-amazon.com/images/I/61pfDqM9GPL._UF894,1000_QL80_.jpg",
-        description: "Natural aromatic oils for beauty and wellness.",
+        name: "Body Wash",
+        img: "images/body wash 02.png",
+        description: "Deeply moisturizing body wash for skin and hair.",
+      },
+      {
+        name: "Body Wash",
+        img: "images/body wash 03.png",
+        description: "Deeply moisturizing body wash for skin and hair.",
       },
     ],
   },
   {
-    title: "Printing & Textile Chemicals",
+    title: "Cleaning Essentials",
     icon: <FaPrint />,
     image:
       "https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?q=80&w=687&auto=format&fit=crop",
@@ -64,42 +69,6 @@ const productCategories = [
         name: "Screen Printing Ink",
         img: "https://www.colorcroma.lk/images/s1.jpg",
         description: "High-quality ink for textile printing applications.",
-      },
-    ],
-  },
-  {
-    title: "Construction Chemicals",
-    icon: <FaHardHat />,
-    image:
-      "https://plus.unsplash.com/premium_photo-1663051275942-a9bd73084bb6?q=80&w=1192&auto=format&fit=crop",
-    products: [
-      {
-        name: "Tile Adhesive",
-        img: "https://5.imimg.com/data5/ANDROID/Default/2021/1/YR/FW/AZ/1498631/product-jpeg.jpg",
-        description: "Strong adhesive for tile installation.",
-      },
-      {
-        name: "Waterproof Coating",
-        img: "https://www.resincoat.co.uk/2870-large_default/resincoat-waterproof-tanking-paint.jpg",
-        description: "Protective coating to prevent water damage.",
-      },
-    ],
-  },
-  {
-    title: "Laboratory Chemicals & Equipment",
-    icon: <FaMicroscope />,
-    image:
-      "https://images.unsplash.com/photo-1616046560582-41ac3c954715?q=80&w=1172&auto=format&fit=crop",
-    products: [
-      {
-        name: "Beakers",
-        img: "https://pixabay.com/get/g3253e5e820649412d3ab15df0ee6edfb1602f9cd188389af5ca2018e465867352f8a5a30afcfecd6bdb3890a849b9c65_1280.jpg",
-        description: "Glass containers for mixing and measuring liquids.",
-      },
-      {
-        name: "Microscope Slides",
-        img: "https://i5.walmartimages.com/seo/AmScope-Simple-Stain-Kit-of-Three-Chemicals-for-Preparing-Microscope-Slides_df2c5b1a-25e5-451c-9f6c-116165c813b0_1.2ac3b327769ab710abca20c2e8dfff98.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
-        description: "Thin glass for holding specimens under a microscope.",
       },
     ],
   },
