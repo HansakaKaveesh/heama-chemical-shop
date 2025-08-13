@@ -138,10 +138,7 @@ export default function Chemicals() {
                   {p.description}
                 </p>
 
-                {/* CTA shows on hover */}
-                <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 group-hover:translate-y-0 group-hover:opacity-100">
-                  View details →
-                </button>
+
               </div>
             </div>
           ))}
