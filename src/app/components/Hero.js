@@ -206,7 +206,7 @@ export default function HeroSlider() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-5xl font-extrabold mb-4 drop-shadow-xl leading-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-4xm font-extrabold mb-4 drop-shadow-xl leading-tight">
           Welcome to{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-300">
             Heama Chemicals
@@ -234,7 +234,7 @@ export default function HeroSlider() {
           ))}
         </div>
 
-        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-medium max-w-3xl text-justify sm:text-left">
+        <p className="text-sm sm:text-base md:text-lg mb-8 drop-shadow-lg font-inter font-medium max-w-2xl text-justify sm:text-left">
           {isMobile ? (
             <>
               Heama Chemicals has been a trusted Sri Lankan supplier of industrial and specialty
