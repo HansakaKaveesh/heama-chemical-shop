@@ -39,7 +39,7 @@ const products = [
   {
     icon: <FaAtom />,
     title: "Sodium Nitrate",
-    description: "Used in fertilizers, explosives, and food preservation.",
+    description: "Used in fertilizers, and food preservation.",
     image: "/images/pro6.jpg",
   },
   {
@@ -69,7 +69,7 @@ const products = [
   {
     icon: <FaVial />,
     title: "Nitric Acid 68%",
-    description: "Strong acid for fertilizers, explosives, and chemical synthesis.",
+    description: "Strong acid for fertilizers, and chemical synthesis.",
     image: "/images/pro11.jpg",
   },
   {
@@ -82,32 +82,66 @@ const products = [
 
 export default function Chemicals() {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 800, once: true, easing: "ease-out-quad" });
   }, []);
 
   return (
-    <section id="chemicals" className="py-20 px-4 bg-emerald-500 text-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-10">Our Chemicals</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <section id="chemicals" className="relative overflow-hidden py-24 px-4">
+      {/* Gradient background + soft glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-emerald-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-[-10%] -z-10 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
+
+      <div className="mx-auto max-w-7xl text-center">
+        <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <span className="bg-gradient-to-r from-white via-emerald-100 to-white bg-clip-text text-transparent">
+            Our Chemicals
+          </span>
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-emerald-50/90">
+          High‑quality industrial chemicals, thoughtfully curated.
+        </p>
+
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {products.map((p, i) => (
             <div
               key={i}
               data-aos="zoom-in"
-              data-aos-delay={i * 100}
-              className="relative h-80 rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+              data-aos-delay={i * 90}
+              role="button"
+              aria-label={p.title}
+              className="group relative h-80 cursor-pointer overflow-hidden rounded-2xl ring-1 ring-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:ring-white/20 hover:shadow-2xl hover:shadow-emerald-900/20"
               style={{
                 backgroundImage: `url(${p.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-opacity-70 transition duration-300 flex flex-col justify-center items-center text-white">
-                <div className="text-3xl mb-4 bg-white text-emerald-600 p-3 rounded-full shadow-lg">
+              {/* Soft gradient overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/90 transition-colors duration-500 group-hover:from-black/0 group-hover:via-black/50 group-hover:to-black/80" />
+
+              {/* Subtle shine sweep on hover */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute top-0 left-[-60%] h-full w-2/3 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:left-[120%] group-hover:opacity-100"
+              />
+
+              {/* Content */}
+              <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 text-center text-white">
+                <div className="text-3xl sm:text-4xl mb-4 rounded-full bg-white/90 p-3 text-emerald-700 shadow-lg shadow-emerald-900/10 ring-1 ring-emerald-600/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
                   {p.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-                <p className="text-sm text-center max-w-xs">{p.description}</p>
+                <h3 className="text-xl font-semibold tracking-tight drop-shadow-md transition-transform duration-300 group-hover:-translate-y-0.5">
+                  {p.title}
+                </h3>
+                <p className="mt-2 max-w-xs text-sm text-white/90">
+                  {p.description}
+                </p>
+
+                {/* CTA shows on hover */}
+                <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 group-hover:translate-y-0 group-hover:opacity-100">
+                  View details →
+                </button>
               </div>
             </div>
           ))}
