@@ -83,18 +83,34 @@ const productCategories = [
     title: "Cleaning Essentials",
     icon: <FaPrint />,
     image:
-      "https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?q=80&w=687&auto=format&fit=crop",
+      "https://confessionsofacleaninglady.com/wp-content/uploads/2023/05/cleaning-products-on-kitchen-counter.webp",
     products: [
       {
-        name: "Fabric Dye",
-        img: "https://www.ritdye.com/wp-content/uploads/2018/01/17247_071_Tif-1-scaled.jpg",
+        name: "Dish Wash",
+        img: "images/dashwash.png",
         description: "Vibrant and long-lasting fabric coloring solution.",
       },
       {
-        name: "Screen Printing Ink",
-        img: "https://www.colorcroma.lk/images/s1.jpg",
-        description: "High-quality ink for textile printing applications.",
+        name: "Car Wash",
+        img: "images/carwash.png",
+        description: "Vibrant and long-lasting fabric coloring solution.",
       },
+       {
+        name: "Air Freshener",
+        img: "images/air.png",
+        description: "Vibrant and long-lasting fabric coloring solution.",
+      },
+       {
+        name: "Dish Wash",
+        img: "images/lemon.png",
+        description: "Vibrant and long-lasting fabric coloring solution.",
+      },
+       {
+        name: "Toilet Cleaner",
+        img: "images/Toilet.png",
+        description: "Vibrant and long-lasting fabric coloring solution.",
+      },
+
     ],
   },
   {
@@ -104,13 +120,13 @@ const productCategories = [
       "https://images.unsplash.com/photo-1495774539583-885e02cca8c2?q=80&w=1170&auto=format&fit=crop",
     products: [
       {
-        name: "Chlorine Tablets",
-        img: "https://image.made-in-china.com/2f0j00hwVWilZGwFqd/Swimming-Pool-Chemical-Chlorine-90-Pool-Chemicals-Chlorine-Tablets-Chlorine-Tablets-for-Pool.webp",
+        name: "Hydrogen Peroxide 50%",
+        img: "images/pro1.jpg",
         description: "Effective disinfectant for water purification.",
       },
       {
-        name: "Water Purification Powder",
-        img: "https://www.zhaoguangroup.com/uploads/28600/small/industrial-waste-water-treatment-powder13eb3.jpg?size=369x0",
+        name: "Trichloroisocyanuric Acid",
+        img: "images/mobile-heri01.png",
         description: "Removes impurities and contaminants from water.",
       },
     ],
