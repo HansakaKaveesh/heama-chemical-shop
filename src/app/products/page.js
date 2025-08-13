@@ -65,7 +65,7 @@ function ProductCard({ image, title, subtitle, description, icon: Icon, accent =
           className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent transition-colors duration-300 group-hover:from-black/65 group-hover:via-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent transition-colors duration-300 group-hover:from-black/25 group-hover:via-black/5" />
         {/* Icon + Title */}
         <div className="absolute top-4 left-4 flex items-center gap-3">
           <div className="h-12 w-12 rounded-full bg-white grid place-items-center shadow-lg ring-1 ring-white/50">
@@ -99,13 +99,13 @@ function ProductCard({ image, title, subtitle, description, icon: Icon, accent =
         </p>
         <div className="mt-4 flex items-center gap-2 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow hover:bg-blue-700"
           >
             Request Quote
           </a>
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-semibold ring-1 ring-blue-200 text-blue-700 hover:bg-blue-50"
           >
             Details
