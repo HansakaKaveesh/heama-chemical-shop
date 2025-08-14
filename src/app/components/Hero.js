@@ -10,7 +10,7 @@ const slidesDesktop = [
 
 const slidesMobile = [
   { image: "/images/heri01.png", alt: "Modern lab with chemical containers" },
-  { image: "/images/heri02.png", alt: "Blue liquid and lab equipment" },
+  { image: "/images/mobile02.png", alt: "Blue liquid and lab equipment" },
   { image: "/images/hero03.png", alt: "Industrial containers and storage" },
 ];
 

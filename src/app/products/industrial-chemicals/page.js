@@ -262,7 +262,7 @@ export default function IndustrialChemicalsPage() {
         {/* Background image */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center scale-105"
-          style={{ backgroundImage: "url('/about.png')" }}
+          style={{ backgroundImage: "url('https://www.airproducts.com/-/media/images/1440x810/masthead/869302164-petrochemical-plant-16x9.jpg?as=0&w=1439&hash=183650C8CA184B5D4418613004742E43')" }}
           aria-hidden="true"
         />
         {/* Gradient veil */}
