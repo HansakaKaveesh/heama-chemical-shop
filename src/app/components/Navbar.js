@@ -222,14 +222,14 @@ const Header = () => {
                       }`}
                     >
                       <Link
-                        href="/products"
+                        href="/products/products"
                         className="block px-3 py-2 rounded text-gray-700 hover:text-blue-700 hover:bg-blue-50 transition"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         Our Products
                       </Link>
                       <Link
-                        href="/industrial-chemicals"
+                        href="/products/industrial-chemicals"
                         className="block px-3 py-2 rounded text-gray-700 hover:text-blue-700 hover:bg-blue-50 transition"
                         onClick={() => setIsMenuOpen(false)}
                       >
