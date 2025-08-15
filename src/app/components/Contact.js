@@ -88,7 +88,7 @@ export default function Contact() {
         <div className="relative w-full h-80 md:h-full rounded-2xl overflow-hidden shadow-xl border border-blue-100">
           <iframe
             title="Heama Chemicals Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019123456789!2d-122.41941518468123!3d37.7749297797596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5b0b0b0b%3A0x0!2sYour%20Company%20Location!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.040837716186!2d79.87561277475663!3d6.88571199311328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b493fc71b1f%3A0x4c6f84654e80e71a!2sHeama%20Chemicals!5e0!3m2!1sen!2slk!4v1755245208118!5m2!1sen!2slk"
             width="100%"
             height="100%"
             style={{ border: 0 }}
