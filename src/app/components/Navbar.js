@@ -162,7 +162,7 @@ const Header = () => {
                           }`}
                         >
                           <Link
-                            href="/products/products#cosmetics"
+                            href="/products/products/cosmetics"
                             className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition"
                             onClick={() => {
                               setIsOurProductsOpen(false);
@@ -172,7 +172,7 @@ const Header = () => {
                             Cosmetics
                           </Link>
                           <Link
-                            href="/products/products#cleaning-essentials"
+                            href="/products/products/cleaning-essentials"
                             className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition"
                             onClick={() => {
                               setIsOurProductsOpen(false);
