@@ -66,12 +66,7 @@ const products = [
     description: "Used in water treatment, construction, and agriculture.",
     image: "/images/1000152735.jpg",
   },
-  {
-    icon: <FaVial />,
-    title: "Nitric Acid 68%",
-    description: "Strong acid for fertilizers, and chemical synthesis.",
-    image: "/images/pro11.jpg",
-  },
+ 
   {
     icon: <FaAtom />,
     title: "Caustic Soda Flakes",

@@ -178,17 +178,7 @@ function BackToTopButton() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  return (
-    <button
-      aria-label="Back to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-6 right-6 z-50 inline-flex items-center justify-center h-11 w-11 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg hover:shadow-xl transition-all ${
-        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
-      }`}
-    >
-      <FaArrowUp />
-    </button>
-  );
+
 }
 
 export default function IndustrialChemicalsPage() {
@@ -433,21 +423,7 @@ export default function IndustrialChemicalsPage() {
               icon: FaFlask,
               accent: "text-fuchsia-600",
             },
-            {
-              image: "/images/pro11.jpg",
-              title: "Nitric Acid",
-              subtitle: (
-                <div className="flex items-center justify-center gap-2 font-bold font-serif text-yellow-500">
-                  <FaMicroscope />
-                  <span className="text-gray-800">Powerful. Precise. Pure.</span>
-                </div>
-              ),
-              description:
-                "Reactive acid for fertilizers, explosives, and metal processing with premium purity.",
-              icon: FaAtom,
-              accent: "text-red-600",
-              badge: "Concentrated",
-            },
+            
             {
               image: "/images/pro9.jpg",
               title: "Magnesium Sulfate Heptahydrate",

@@ -504,19 +504,7 @@ export default function ProductsPage() {
                 "Essential for water purification and paper manufacturing — highly soluble and consistent.",
               icon: FaFlask,
             },
-            {
-              image: "/images/pro11.jpg",
-              title: "Nitric Acid",
-              subtitle: (
-                <div className="flex items-center justify-center gap-2 font-bold font-serif text-yellow-500">
-                  <FaMicroscope />
-                  <span className="text-gray-800">Powerful. Precise. Pure.</span>
-                </div>
-              ),
-              description:
-                "Reactive acid for fertilizers, explosives, and metal processing with premium purity.",
-              icon: FaAtom,
-            },
+            
             {
               image: "/images/pro9.jpg",
               title: "Magnesium Sulfate Heptahydrate",
