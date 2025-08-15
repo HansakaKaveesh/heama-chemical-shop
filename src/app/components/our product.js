@@ -30,11 +30,6 @@ const productCategories = [
         description: "Natural hair-cleansing formula with essential nutrients.",
       },
         {
-        name: "Shampoo",
-        img: "images/shampoo2.png",
-        description: "Natural hair-cleansing formula with essential nutrients.",
-      },
-        {
         name: "Powder",
         img: "images/powder.png",
         description: "Natural skin-soothing extract rich in vitamins.",
