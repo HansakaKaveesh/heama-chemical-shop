@@ -225,7 +225,7 @@ export default function ManufacturingPage() {
         </Link>
       </section>
 
-      {/* WhatsApp Floating Button */}
+      {/* WhatsApp Floating Button 
       <a
         href="https://wa.me/1234567890"
         target="_blank"
@@ -234,7 +234,7 @@ export default function ManufacturingPage() {
         aria-label="Chat on WhatsApp"
       >
         <FaWhatsapp className="text-2xl" />
-      </a>
+      </a>*/}
     </main>
   );
 }
