@@ -7,7 +7,7 @@ export default function WhatsAppFloatingButton({
   phone,
   message = "Hi Heama Chemicals! I'd like to know more about your products.",
 }) {
-  const targetPhone = (phone || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "")
+  const targetPhone = (phone || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "94773441501")
     .toString()
     .replace(/[^\d]/g, "");
 
