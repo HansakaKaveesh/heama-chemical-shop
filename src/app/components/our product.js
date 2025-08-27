@@ -70,7 +70,7 @@ export default function Products() {
               aria-label={cat.title}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/45 to-black/70" />
               {/* Shine sweep */}
               <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out" />
               {/* Content */}
@@ -78,7 +78,7 @@ export default function Products() {
                 <div className="text-3xl md:text-4xl mb-4 bg-white text-emerald-600 p-3 rounded-full shadow-lg">
                   {cat.icon}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold drop-shadow">{cat.title}</h3>
+                <h3 className="text-2xl text-white/85 md:text-3xl font-bold drop-shadow">{cat.title}</h3>
                 <p className="text-white/85 text-sm md:text-base mt-2">
                   Curated quality for reliable performance.
                 </p>
