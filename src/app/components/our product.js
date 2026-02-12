@@ -3,7 +3,16 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaFlask, FaSoap, FaPrint, FaWater } from "react-icons/fa";
+import {
+  FaFlask,
+  FaSoap,
+  FaPrint,
+  FaWater,
+  FaIndustry,
+  FaSeedling,
+  FaMicroscope,
+  FaHammer,
+} from "react-icons/fa";
 
 const categories = [
   {
@@ -23,6 +32,30 @@ const categories = [
     icon: <FaPrint />,
     image:
       "https://confessionsofacleaninglady.com/wp-content/uploads/2023/05/cleaning-products-on-kitchen-counter.webp",
+  },
+  {
+    title: "Industrial Solutions",
+    icon: <FaIndustry />,
+    image:
+      "https://images.pexels.com/photos/3855962/pexels-photo-3855962.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  },
+  {
+    title: "Agro Solutions",
+    icon: <FaSeedling />,
+    image:
+      "https://images.pexels.com/photos/533982/pexels-photo-533982.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  },
+  {
+    title: "Laboratory & Research",
+    icon: <FaMicroscope />,
+    image:
+      "https://images.unsplash.com/photo-1694230155228-cdde50083573?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Construction Chemicals",
+    icon: <FaHammer />,
+    image:
+      "https://images.pexels.com/photos/544971/pexels-photo-544971.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     title: "Water Treatment Chemicals",
@@ -51,11 +84,12 @@ export default function Products() {
           </span>
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-emerald-50/90">
-          Premium personal care, cleaning, and water treatment categories.
+          Premium personal care, cleaning, industrial, agro, lab, construction, and water treatment
+          categories.
         </p>
 
         {/* Category hero blocks only (no product cards) */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((cat, i) => (
             <div
               key={cat.title}
@@ -78,7 +112,9 @@ export default function Products() {
                 <div className="text-3xl md:text-4xl mb-4 bg-white text-emerald-600 p-3 rounded-full shadow-lg">
                   {cat.icon}
                 </div>
-                <h3 className="text-2xl text-white/85 md:text-3xl font-bold drop-shadow">{cat.title}</h3>
+                <h3 className="text-2xl text-white/85 md:text-3xl font-bold drop-shadow">
+                  {cat.title}
+                </h3>
                 <p className="text-white/85 text-sm md:text-base mt-2">
                   Curated quality for reliable performance.
                 </p>
@@ -86,26 +122,6 @@ export default function Products() {
             </div>
           ))}
         </div>
-
-        {/* Back to top 
-        <div className="mt-10 flex justify-center">
-          <a
-            href="#products"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 ring-1 ring-white/20 backdrop-blur text-white transition-colors"
-          >
-            Back to top
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-            </svg>
-          </a>
-        </div>*/}
       </div>
     </section>
   );
