@@ -202,7 +202,7 @@ export default function HeroSlider() {
       <div className="relative z-[2] flex flex-col items-center sm:items-start justify-center h-full w-full text-center sm:text-left text-white px-4 sm:px-8 md:px-24 mt-4 sm:mt-0">
         <div className="mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 ring-1 ring-white/20 backdrop-blur">
-            ISO 9001:2015 Certified <span aria-hidden>•</span> Since 1999
+            ISO 9001:2015 Certified <span aria-hidden>•</span> Since 2017
           </span>
         </div>
 

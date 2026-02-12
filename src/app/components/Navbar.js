@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -10,6 +11,16 @@ const navLinks = [
   { href: "/about-us", label: "About Us" },
   { href: "/products", label: "Products" },
   { href: "/manufacturing", label: "Manufacturing" },
+];
+
+// Any route that should highlight "Products"
+const productRelatedRoutes = [
+  "/products",
+  "/industrial-chemicals",
+  "/agro",
+  "/lab",
+  "/construction",
+  "/water-treatment",
 ];
 
 const Header = () => {
@@ -27,36 +38,44 @@ const Header = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!hasMounted) return null;
 
-  // Treat Products as active for these routes
   const productsIsActive =
-    pathname === "/products" ||
-    pathname === "/industrial-chemicals" ||
-    pathname.startsWith("/products/industrial-chemicals");
+    productRelatedRoutes.some((r) => pathname === r) ||
+    pathname?.startsWith("/products/") ||
+    pathname?.startsWith("/industrial-chemicals/");
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 shadow-lg border-b border-gray-200"
-          : "bg-white/10 backdrop-blur-md"
+          ? "bg-white/90 backdrop-blur-xl shadow-[0_12px_40px_-22px_rgba(15,23,42,0.9)] border-b border-slate-100"
+          : "bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent backdrop-blur-md border-b border-white/10"
       }`}
-      style={{ WebkitBackdropFilter: "blur(12px)" }}
+      style={{ WebkitBackdropFilter: "blur(14px)" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Glow line under header */}
+      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <img
-              src={isScrolled ? "/images/logo.png" : "/logo W.png"}
-              alt="Heama Logo"
-              className="h-10 w-auto object-contain drop-shadow transition duration-300"
-            />
+            <div className="relative h-10 w-auto">
+              <Image
+                src={isScrolled ? "/images/logo.png" : "/logo W.png"}
+                alt="Heama Logo"
+                width={140}
+                height={40}
+                className="h-10 w-auto object-contain drop-shadow-sm transition transform group-hover:scale-[1.02]"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Centered Navigation */}
@@ -67,21 +86,32 @@ const Header = () => {
                   ? productsIsActive
                   : pathname === link.href;
 
-              const colorClasses = isScrolled
-                ? isActive
-                  ? "text-blue-600"
-                  : "text-gray-700 hover:text-blue-600"
-                : isActive
-                ? "text-blue-300"
-                : "text-white hover:text-blue-300";
+              const baseColor = isScrolled
+                ? "text-slate-700 hover:text-blue-700"
+                : "text-slate-100 hover:text-blue-200";
+
+              const activeColor = isScrolled
+                ? "text-blue-700"
+                : "text-emerald-100";
+
+              const colorClasses = isActive ? activeColor : baseColor;
 
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative font-medium transition ${colorClasses}
-                    after:content-[''] after:block after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300
-                    hover:after:w-full after:rounded`}
+                  className={`
+                    relative px-1 pb-1 font-medium text-sm tracking-wide transition-colors
+                    ${colorClasses}
+                    after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                    after:h-0.5 after:rounded-full after:bg-gradient-to-r after:from-blue-500 after:to-cyan-400
+                    after:transition-all after:duration-300
+                    ${
+                      isActive
+                        ? "after:w-full"
+                        : "after:w-0 hover:after:w-full"
+                    }
+                  `}
                 >
                   {link.label}
                 </Link>
@@ -93,10 +123,10 @@ const Header = () => {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className={`px-6 py-2 rounded-lg shadow font-semibold transition ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all duration-200 border ${
                 isScrolled
-                  ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "bg-blue-600 text-white border border-white hover:bg-white/50"
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-700 hover:shadow-lg"
+                  : "bg-blue-600/90 text-white border-white/40 hover:bg-white/90 hover:text-blue-700"
               }`}
             >
               Contact Us
@@ -105,25 +135,32 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg bg-white/70 hover:bg-blue-100 transition border border-gray-200 ml-auto"
+            className={`md:hidden p-2 rounded-lg border ml-auto transition-all duration-200 ${
+              isScrolled
+                ? "bg-white/90 border-slate-200 hover:bg-blue-50"
+                : "bg-slate-900/60 border-slate-700/70 hover:bg-slate-800"
+            }`}
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              <X className="h-7 w-7 text-blue-700" />
+              <X className="h-6 w-6 text-blue-700" />
             ) : (
-              <Menu className="h-7 w-7 text-blue-700" />
+              <Menu className="h-6 w-6 text-blue-100" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden transition-all duration-300 origin-top ${
+            isMenuOpen
+              ? "max-h-[420px] opacity-100 scale-y-100"
+              : "max-h-0 opacity-0 scale-y-95"
           }`}
         >
-          <div className="px-4 pt-2 pb-6 space-y-2 bg-white/95 border-t border-gray-200 rounded-b-xl shadow-lg">
+          <div className="px-4 pt-2 pb-6 space-y-2 bg-white/95 border-t border-slate-200 rounded-b-2xl shadow-xl">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/products"
@@ -134,10 +171,10 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-3 py-2 rounded font-medium transition ${
+                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-slate-700 hover:bg-slate-50 hover:text-blue-700"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -147,7 +184,7 @@ const Header = () => {
             })}
             <Link
               href="/contact"
-              className="block bg-blue-600 text-white text-center px-3 py-2 rounded-lg hover:bg-blue-700 transition mt-4 font-semibold"
+              className="block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center px-3 py-2 rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all font-semibold shadow-md mt-4"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact Us
