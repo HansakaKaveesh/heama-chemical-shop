@@ -238,7 +238,7 @@ export default function HeroSlider() {
           {isMobile ? (
             <>
               Heama Chemicals has been a trusted Sri Lankan supplier of industrial and specialty
-              chemicals since 1999, serving industries from cosmetics and water treatment to
+              chemicals since 2017, serving industries from cosmetics and water treatment to
               construction, textiles, and research. As an ISO 9001:2015 certified company, we provide
               safe, reliable, and sustainable solutions with expert support and a growing product
               range.
@@ -246,7 +246,7 @@ export default function HeroSlider() {
           ) : (
             <>
               Heama Chemicals is a trusted Sri Lankan chemical supplier delivering high-quality
-              industrial and specialty chemicals since 1999. With a reputation built on reliability,
+              industrial and specialty chemicals since 2017. With a reputation built on reliability,
               innovation, and technical excellence, we proudly serve a wide range of industries
               including cosmetics, water treatment, construction, textiles, and laboratory research.
               <br />
