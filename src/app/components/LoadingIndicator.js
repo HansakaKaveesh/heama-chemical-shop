@@ -11,42 +11,66 @@ export default function LoadingIndicator() {
     if (!pathname) return;
 
     setLoading(true);
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1700); // Simulated loading time
-
+    const timeout = setTimeout(() => setLoading(false), 1700);
     return () => clearTimeout(timeout);
   }, [pathname]);
 
-  return loading ? (
-    <div className="fixed top-0 left-0 w-full h-full bg-white backdrop-blur-sm flex flex-col items-center justify-center z-[9999]">
-      <div className="loader"></div>
-      <div className="mt-6 text-xl font-semibold text-[#269af2] tracking-wide">
-        Heama Chemicals
+  if (!loading) return null;
+
+  return (
+    <div className="fixed inset-0 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center z-[9999]">
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      
+      <div className="relative flex flex-col items-center gap-6">
+        {/* Morphing loader */}
+        <div className="relative">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#269af2] to-blue-600 animate-morph shadow-lg shadow-blue-500/30" />
+          <div className="absolute inset-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#269af2] to-blue-600 animate-morph opacity-50 blur-md" style={{ animationDelay: '-0.5s' }} />
+        </div>
+
+        {/* Brand */}
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-bold text-slate-800 tracking-tight">
+            Heama <span className="text-[#269af2]">Chemicals</span>
+          </h1>
+          
+          {/* Animated dots */}
+          <div className="flex justify-center gap-1.5">
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className="w-2 h-2 rounded-full bg-[#269af2] animate-bounce"
+                style={{ animationDelay: `${i * 0.15}s` }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
+
       <style jsx>{`
-        .loader {    
-          --r1: 154%;
-          --r2: 68.5%;
-          width: 60px;
-          aspect-ratio: 1;
-          border-radius: 50%; 
-          background:
-            radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
-            radial-gradient(var(--r1) var(--r2) at bottom,#269af2 79.5%,#0000 80%),
-            radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
-            #ccc;
-          background-size: 50.5% 220%;
-          background-position: -100% 0%,0% 0%,100% 0%;
-          background-repeat:no-repeat;
-          animation: l9 2s infinite linear;
+        @keyframes morph {
+          0%, 100% {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            transform: rotate(0deg) scale(1);
+          }
+          25% {
+            border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+            transform: rotate(90deg) scale(1.05);
+          }
+          50% {
+            border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+            transform: rotate(180deg) scale(1);
+          }
+          75% {
+            border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+            transform: rotate(270deg) scale(1.05);
+          }
         }
-        @keyframes l9 {
-            33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
-            66%  {background-position: -100%  66%,0%   66% ,100% 66% }
-            100% {background-position:    0% 100%,100% 100%,200% 100%}
+        .animate-morph {
+          animation: morph 3s ease-in-out infinite;
         }
       `}</style>
     </div>
-  ) : null;
+  );
 }
