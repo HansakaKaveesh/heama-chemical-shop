@@ -137,7 +137,7 @@ const Header = () => {
           <button
             className={`md:hidden p-2 rounded-lg border ml-auto transition-all duration-200 ${
               isScrolled
-                ? "bg-white/90 border-slate-200 hover:bg-blue-50"
+                ? "bg-black/80 border-slate-200 hover:bg-blue-50"
                 : "bg-slate-900/60 border-slate-700/70 hover:bg-slate-800"
             }`}
             onClick={toggleMenu}
